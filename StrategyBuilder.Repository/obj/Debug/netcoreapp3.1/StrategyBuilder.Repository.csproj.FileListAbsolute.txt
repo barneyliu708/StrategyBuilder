@@ -1,0 +1,12 @@
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\bin\Debug\netcoreapp3.1\StrategyBuilder.Repository.deps.json
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\bin\Debug\netcoreapp3.1\StrategyBuilder.Repository.dll
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.csprojAssemblyReference.cache
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.AssemblyInfoInputs.cache
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.AssemblyInfo.cs
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\bin\Debug\netcoreapp3.1\StrategyBuilder.Repository.runtimeconfig.json
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\bin\Debug\netcoreapp3.1\StrategyBuilder.Repository.runtimeconfig.dev.json
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\bin\Debug\netcoreapp3.1\StrategyBuilder.Repository.pdb
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.dll
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.pdb
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.genruntimeconfig.cache
+C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Repository\obj\Debug\netcoreapp3.1\StrategyBuilder.Repository.csproj.CoreCompileInputs.cache
