@@ -1,9 +1,0 @@
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\bin\Debug\netcoreapp3.1\StrategyBuilder.Model.deps.json
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\bin\Debug\netcoreapp3.1\StrategyBuilder.Model.dll
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\bin\Debug\netcoreapp3.1\StrategyBuilder.Model.pdb
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.csprojAssemblyReference.cache
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.AssemblyInfoInputs.cache
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.AssemblyInfo.cs
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.csproj.CoreCompileInputs.cache
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.dll
-C:\Users\barne\GitHubRepos\StrategyBuilder\StrategyBuilder.Model\obj\Debug\netcoreapp3.1\StrategyBuilder.Model.pdb
