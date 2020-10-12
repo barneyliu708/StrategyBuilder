@@ -10,7 +10,7 @@ using StrategyBuilder.Repository;
 namespace StrategyBuilder.Repository.Migrations
 {
     [DbContext(typeof(StrategyBuilderContext))]
-    [Migration("20201012002656_CreateDatabase")]
+    [Migration("20201012033903_CreateDatabase")]
     partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,22 +48,65 @@ namespace StrategyBuilder.Repository.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
 
                     b.ToTable("EventGroups");
                 });
 
+            modelBuilder.Entity("StrategyBuilder.Repository.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EncryptedPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("SecretKey")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Event", b =>
                 {
-                    b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", null)
+                    b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", "EventGroup")
                         .WithMany("Events")
                         .HasForeignKey("EventGroupId");
+                });
+
+            modelBuilder.Entity("StrategyBuilder.Repository.Entities.EventGroup", b =>
+                {
+                    b.HasOne("StrategyBuilder.Repository.Entities.User", "CreatedBy")
+                        .WithMany("EventGroups")
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

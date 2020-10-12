@@ -8,17 +8,39 @@ namespace StrategyBuilder.Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(maxLength: 50, nullable: false),
+                    EncryptedPassword = table.Column<string>(maxLength: 1000, nullable: false),
+                    SecretKey = table.Column<string>(maxLength: 1000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EventGroups",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedById = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EventGroups", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EventGroups_Users_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,6 +64,11 @@ namespace StrategyBuilder.Repository.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_EventGroups_CreatedById",
+                table: "EventGroups",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Events_EventGroupId",
                 table: "Events",
                 column: "EventGroupId");
@@ -54,6 +81,9 @@ namespace StrategyBuilder.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventGroups");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

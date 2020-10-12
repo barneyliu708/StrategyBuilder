@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StrategyBuilder.Repository.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StrategyBuilder.Repository
 {
@@ -10,6 +7,7 @@ namespace StrategyBuilder.Repository
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<EventGroup> EventGroups { get; set; }
+        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=localhost\;Database=StrategyBuilder;Trusted_Connection=True;MultipleActiveResultSets=true");

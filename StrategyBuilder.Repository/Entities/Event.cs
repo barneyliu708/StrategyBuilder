@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace StrategyBuilder.Repository.Entities
 {
     public class Event
     {
+        [Key]
         public int Id { get; set; }
         public DateTime Occurrence { get; set; }
+        public EventGroup EventGroup { get; set; }
     }
 }
