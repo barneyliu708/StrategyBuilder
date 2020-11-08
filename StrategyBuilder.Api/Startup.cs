@@ -41,6 +41,7 @@ namespace StrategyBuilder.Api
             // Dependency Injection
             services.AddTransient<DbContext, StrategyBuilderContext>();
             services.AddTransient<IEventService, EventService>();
+            services.AddTransient<IStrategyService, StrategyService>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();

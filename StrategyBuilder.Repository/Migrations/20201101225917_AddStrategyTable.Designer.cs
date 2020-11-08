@@ -3,56 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StrategyBuilder.Repository;
 
 namespace StrategyBuilder.Repository.Migrations
 {
     [DbContext(typeof(StrategyBuilderContext))]
-    partial class StrategyBuilderContextModelSnapshot : ModelSnapshot
+    [Migration("20201101225917_AddStrategyTable")]
+    partial class AddStrategyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("StrategyBuilder.Repository.Entities.BackTestingResult", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndTo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ExecutedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ExecutedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ReportFileUri")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("StartFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("StrategyId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExecutedById");
-
-                    b.HasIndex("StrategyId");
-
-                    b.ToTable("BackTestingResults");
-                });
 
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Event", b =>
                 {
@@ -157,19 +124,6 @@ namespace StrategyBuilder.Repository.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("StrategyBuilder.Repository.Entities.BackTestingResult", b =>
-                {
-                    b.HasOne("StrategyBuilder.Repository.Entities.User", "ExecutedBy")
-                        .WithMany("BackTestingResults")
-                        .HasForeignKey("ExecutedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StrategyBuilder.Repository.Entities.Strategy", "Strategy")
-                        .WithMany("BackTestingResults")
-                        .HasForeignKey("StrategyId");
-                });
-
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Event", b =>
                 {
                     b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", "EventGroup")
@@ -185,7 +139,7 @@ namespace StrategyBuilder.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StrategyBuilder.Repository.Entities.Strategy", "Strategy")
+                    b.HasOne("StrategyBuilder.Repository.Entities.Strategy", null)
                         .WithMany("EventGroups")
                         .HasForeignKey("StrategyId");
                 });
@@ -193,7 +147,7 @@ namespace StrategyBuilder.Repository.Migrations
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Strategy", b =>
                 {
                     b.HasOne("StrategyBuilder.Repository.Entities.User", "CreatedBy")
-                        .WithMany("Strategies")
+                        .WithMany()
                         .HasForeignKey("CreatedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

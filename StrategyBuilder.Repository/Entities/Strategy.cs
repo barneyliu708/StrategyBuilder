@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace StrategyBuilder.Repository.Entities
 {
-    public class EventGroup
+    public class Strategy
     {
-        public EventGroup()
+        public Strategy()
         {
-            Events = new List<Event>();
+            EventGroups = new List<EventGroup>();
+            BackTestingResults = new List<BackTestingResult>();
         }
 
         [Key]
@@ -23,8 +26,7 @@ namespace StrategyBuilder.Repository.Entities
         [Required]
         public User CreatedBy { get; set; }
 
-        public Strategy Strategy { get; set; }
-
-        public ICollection<Event> Events { get; set; }
+        public ICollection<EventGroup> EventGroups { get; set; }
+        public ICollection<BackTestingResult> BackTestingResults { get; set; }
     }
 }

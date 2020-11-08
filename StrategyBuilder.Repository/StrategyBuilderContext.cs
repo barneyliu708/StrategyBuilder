@@ -7,6 +7,8 @@ namespace StrategyBuilder.Repository
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<EventGroup> EventGroups { get; set; }
+        public DbSet<Strategy> Strategies { get; set; }
+        public DbSet<BackTestingResult> BackTestingResults { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

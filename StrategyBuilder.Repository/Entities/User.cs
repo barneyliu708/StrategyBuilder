@@ -7,6 +7,13 @@ namespace StrategyBuilder.Repository.Entities
 {
     public class User
     {
+        public User()
+        {
+            EventGroups = new List<EventGroup>();
+            Strategies = new List<Strategy>();
+            BackTestingResults = new List<BackTestingResult>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -22,5 +29,7 @@ namespace StrategyBuilder.Repository.Entities
         public string SecretKey { get; set; }
 
         public ICollection<EventGroup> EventGroups { get; set; }
+        public ICollection<Strategy> Strategies { get; set; }
+        public ICollection<BackTestingResult> BackTestingResults { get; set; }
     }
 }

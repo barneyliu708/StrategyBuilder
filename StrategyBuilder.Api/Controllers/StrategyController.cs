@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StrategyBuilder.Repository.Entities;
+using StrategyBuilder.Service.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +14,20 @@ namespace StrategyBuilder.Api.Controllers
     [ApiController]
     public class StrategyController : ControllerBase
     {
+        private IStrategyService _strategyService;
+
+        public StrategyController(IStrategyService strategyService)
+        {
+            _strategyService = strategyService;
+        }
+
         // GET: api/<StrategyController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Strategy> GetAllStrategiesByUserId()
         {
-            return new string[] { "value1", "value2" };
+            int userId = 2;
+            var eventList = _strategyService.GetAllStrategiesByUserId(userId);
+            return eventList;
         }
 
         // GET api/<StrategyController>/5
