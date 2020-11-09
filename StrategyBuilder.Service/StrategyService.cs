@@ -19,8 +19,9 @@ namespace StrategyBuilder.Service
         public IEnumerable<Strategy> GetAllStrategiesByUserId(int userId)
         {
             return _dbContext.Set<Strategy>()
-                             .Where(e => e.CreatedBy.Id == userId)
-                             .Include(e => e.EventGroups);
+                             .Where(s => s.CreatedBy.Id == userId)
+                             .Include(s => s.EventGroups)
+                             .Include(s => s.BackTestingResults);
         }
     }
 }
