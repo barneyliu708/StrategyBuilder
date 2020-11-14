@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StrategyBuilder.Repository;
+using StrategyBuilder.Repository.Interfaces;
 using StrategyBuilder.Service;
 using StrategyBuilder.Service.Interfaces;
 
@@ -40,8 +41,10 @@ namespace StrategyBuilder.Api
 
             // Dependency Injection
             services.AddTransient<DbContext, StrategyBuilderContext>();
+            services.AddTransient<IStockDataRepo, StockDataRepo>();
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IStrategyService, StrategyService>();
+            services.AddTransient<IBackTestingEngine, BackTestingEngine>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
