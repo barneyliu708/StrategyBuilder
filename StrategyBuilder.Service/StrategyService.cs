@@ -23,5 +23,14 @@ namespace StrategyBuilder.Service
                              .Include(s => s.EventGroups)
                              .Include(s => s.BackTestingResults);
         }
+
+        public Strategy GetStrategiesByStrategyId(int strategyId)
+        {
+            return _dbContext.Set<Strategy>()
+                             .Where(s => s.Id == strategyId)
+                             .Include(s => s.EventGroups).ThenInclude(s => s.Events)
+                             .Include(s => s.BackTestingResults)
+                             .FirstOrDefault();
+        }
     }
 }

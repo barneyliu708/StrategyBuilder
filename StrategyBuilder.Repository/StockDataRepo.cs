@@ -24,8 +24,9 @@ namespace StrategyBuilder.Repository
             HttpResponseMessage response = await _httpclient.GetAsync(uri);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
-            Dictionary<string, string> bodyobject = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-            Dictionary<string, Dictionary<string, string>> dailyprices = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(bodyobject["Time Series (Daily)"]);
+            Dictionary<string, dynamic> bodyobject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(responseBody);
+            string timeSeriesStr = JsonConvert.SerializeObject(bodyobject["Time Series (Daily)"]);
+            Dictionary<string, Dictionary<string, string>> dailyprices = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(timeSeriesStr);
             var convertedprices =
                 dailyprices.Select(
                     x => new KeyValuePair<DateTime, StockPriceAdjustDaily>(

@@ -8,5 +8,6 @@ namespace StrategyBuilder.Service.Interfaces
     public interface IStrategyService
     {
         IEnumerable<Strategy> GetAllStrategiesByUserId(int userId);
+        Strategy GetStrategiesByStrategyId(int strategyId);
     }
 }
