@@ -28,6 +28,7 @@ namespace StrategyBuilder.Service
         {
             return _dbContext.Set<Strategy>()
                              .Where(s => s.Id == strategyId)
+                             .Include(s => s.CreatedBy)
                              .Include(s => s.EventGroups).ThenInclude(s => s.Events)
                              .Include(s => s.BackTestingResults)
                              .FirstOrDefault();
