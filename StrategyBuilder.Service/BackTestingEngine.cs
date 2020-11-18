@@ -164,7 +164,7 @@ namespace StrategyBuilder.Service
             {
                 using(var db = new StrategyBuilderContext())
                 {
-                    db.InsertIntoBackTestingResult(DateTime.Now, from, to, "C:\\Users\\barne\\GitHubRepos\\StrategyBuilder.BFF\\StrategyBuilder.Api\\" + outputfilename, strategy.CreatedBy.Id, strategyId);
+                    db.InsertIntoBackTestingResult(DateTime.Now, from, to, "http://127.0.0.1:8887/" + outputfilename, strategy.CreatedBy.Id, strategyId);
                 }
             } 
             catch (Exception ex)
