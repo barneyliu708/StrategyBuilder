@@ -159,63 +159,19 @@ namespace StrategyBuilder.Service
             }
             Console.WriteLine(outputString);
 
+            // save report uri to database
             try
             {
                 using(var db = new StrategyBuilderContext())
                 {
-                    var newReport = new BackTestingResult()
-                    {
-                        ExecutedOn = DateTime.Now,
-                        ExecutedBy = strategy.CreatedBy,
-                        Strategy = strategy,
-                        ReportFileUri = "C:\\Users\\barne\\GitHubRepos\\StrategyBuilder.BFF\\StrategyBuilder.Api\\" + outputfilename,
-                        StartFrom = from,
-                        EndTo = to
-                    };
-                    //db.BackTestingResults.Add(newReport);
-                    //var result = db.BackTestingResults.Where(x => x.Strategy.Id == strategyId).ToList();
-                    //result.Add(newReport);
-                    db.Entry(newReport).State = EntityState.Added;
-                    //var s = db.Strategies.FirstOrDefault(s => s.Id == strategyId);
-                    //s.BackTestingResults.Add(newReport);
-
-                    //db.Update(s);
-                    _dbContext.SaveChanges();
+                    db.InsertIntoBackTestingResult(DateTime.Now, from, to, "C:\\Users\\barne\\GitHubRepos\\StrategyBuilder.BFF\\StrategyBuilder.Api\\" + outputfilename, strategy.CreatedBy.Id, strategyId);
                 }
-                //save the result to database
-                //strategy.BackTestingResults.Add(
-                //    new BackTestingResult()
-                //    {
-                //        ExecutedOn = DateTime.Now,
-                //    //ExecutedBy = new User() { Id = strategy.CreatedBy.Id },
-                //    //Strategy = strategy,
-                //    ReportFileUri = "C:\\Users\\barne\\GitHubRepos\\StrategyBuilder.BFF\\StrategyBuilder.Api\\" + outputfilename,
-                //        StartFrom = from,
-                //        EndTo = to
-                //    });
-                //_dbContext.Update(strategy);
-                ////var backtestingResults = _dbContext.Set<BackTestingResult>().Where(r => r.Strategy.Id == strategyId).ToList();
-                ////_dbContext.Add(new BackTestingResult()
-                ////{
-                ////    ExecutedOn = DateTime.Now,
-                ////    ExecutedBy = strategy.CreatedBy,
-                ////    Strategy = strategy,
-                ////    ReportFileUri = "C:\\Users\\barne\\GitHubRepos\\StrategyBuilder.BFF\\StrategyBuilder.Api\\" + outputfilename,
-                ////    StartFrom = from,
-                ////    EndTo = to
-                ////});
-                //_dbContext.SaveChanges();
             } 
             catch (Exception ex)
             {
-
+                //suppress
             }
             
         }
-
-        //private NegativeIndexArray CalculateEventsPerformance(IEnumerable<Event> events, Dictionary<DateTime, StockPriceAdjustDaily> stockprices)
-        //{
-        //    var result = new NegativeIndexArray<decimal>()
-        //}
     }
 }

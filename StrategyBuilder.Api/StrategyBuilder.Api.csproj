@@ -5,6 +5,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="First Strategy Demo_2020_11_15_036186ee-5c78-4fde-8ce4-03b9abf3e538.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_04c97286-66ef-4703-a709-439cd6341288.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_166f1042-672c-4960-928e-0528d26fa77e.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_1e4c6441-c3ba-434c-aed9-21197a008fdb.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_2055e32d-a2f5-425b-8a14-ca92865335b4.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_2cfa7aa3-586c-4225-a285-e49809d805b3.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_2e93b3f8-7c68-40e0-bb1b-2656a31339a0.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_33a578cd-ef35-4a47-8131-8fbc1c77a14e.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_44d8980b-462c-4fe0-b177-92d930fd7115.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_51b0c157-a77e-4b9f-a79c-77eb2a60c453.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_5447171c-5a6a-45df-a4e3-09566ab9abc3.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_5a3bbae6-6be7-4beb-b425-6d89aa97d2c7.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_7b6ac5e2-090b-4f0d-9438-06817d268bc5.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_7c55bd17-5b73-4be4-b57d-afadb2add76f.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_82c78463-a256-4fda-a298-431e9e117f06.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_a5f54d82-4f8d-492c-aa65-a5f71778fc96.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_b1e9bddd-48d5-4b8d-9486-9b94a461b208.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_b44325cb-5daa-41f2-a129-e5ba335b86be.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_be230530-a73c-4c9b-988e-c2ecd6a471ca.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_c3210158-ec82-4270-85b3-9aca08657018.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_e05d7d1c-36dd-439c-bbb8-b442fc3aa1ca.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_e5c7de76-bc00-4247-a48e-765db2ef28ad.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_eb64ed73-2cd7-4535-b6bb-59d21f23ae0b.pdf" />
+    <None Remove="First Strategy Demo_2020_11_15_f13d141a-a322-4f4d-accd-a7434ee805d2.pdf" />
+    <None Remove="First Strategy Demo_2020_11_17_0238cc2d-9411-42d1-92e8-72a080059ca6.pdf" />
+    <None Remove="First Strategy Demo_2020_11_17_216eb8f5-f7c1-49b9-a9d2-3133c8385252.pdf" />
+    <None Remove="First Strategy Demo_2020_11_17_371bf9c9-84f5-4c9a-b191-558a5e72209c.pdf" />
+    <None Remove="flowable_with_line_chart.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
