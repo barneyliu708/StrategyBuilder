@@ -20,7 +20,7 @@ namespace StrategyBuilder.Repository
         public async Task<Dictionary<DateTime, StockPriceAdjustDaily>> GetStockPriceAdjustDaily(DateTime from, DateTime to, string symbol)
         {
             // generate uri
-            string uri = _baseurl + $"/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={_apikey}";
+            string uri = _baseurl + $"/query?function=TIME_SERIES_DAILY&symbol={symbol}&outputsize=full&apikey={_apikey}";
             HttpResponseMessage response = await _httpclient.GetAsync(uri);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();

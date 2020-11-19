@@ -13,6 +13,7 @@ namespace StrategyBuilder.Service
     {
         public static string GenerateReport(string strategyName, 
                                             string description, 
+                                            string symbol,
                                             int eventdatefrom, 
                                             int eventdateto, 
                                             NegativeIndexArray<decimal> meanResult, 
@@ -35,12 +36,13 @@ namespace StrategyBuilder.Service
                 yAxis.Add(meanResult[i]);
             }
 
-            string outputfilename = $"{strategyName}_{DateTime.Now:yyyy_MM_dd}_{Guid.NewGuid()}.pdf";
+            string outputfilename = $"{strategyName}_{symbol}_{DateTime.Now:yyyy_MM_dd}_{Guid.NewGuid()}.pdf";
             object arg = new
             {
                 filename = outputfilename,
                 strategyname = strategyName,
                 strategydescription = description,
+                symbol = symbol,
                 executedon = executedOn,
                 executefrom = executeFrom,
                 executeto = executeTo,

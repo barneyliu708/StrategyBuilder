@@ -91,6 +91,7 @@ namespace StrategyBuilder.Service
 
             string reportUri = ReportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description, 
+                                                              symbol,
                                                               eventdatefrom, 
                                                               eventdateto, 
                                                               mean, 
