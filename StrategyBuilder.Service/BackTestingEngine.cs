@@ -88,7 +88,7 @@ namespace StrategyBuilder.Service
                 mean[i] = normalizedresults.Sum(x => x[i]) / normalizedresults.Count;
             }
 
-
+            // generate report
             string reportUri = ReportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description, 
                                                               symbol,
@@ -98,75 +98,7 @@ namespace StrategyBuilder.Service
                                                               DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), 
                                                               from.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                                                               to.ToString("yyyy-MM-dd HH:mm:ss.fff"));
-            /////////////////////////
-            //// generate report
-            ////////////////////////
-
-            //// full path to .py file
-            //string pyScriptPath = @"C:\Users\barne\OneDrive\Documents\CPT\HU\Semester 5\GRAD 695\Project\ReportGeneratorScript.py";
-            //// convert input arguments to JSON string
-            //List<int> xAxis = new List<int>();
-            //List<decimal> yAxis = new List<decimal>();
-            //for (int i = eventdatefrom; i <= eventdateto; i++)
-            //{
-            //    xAxis.Add(i);
-            //    yAxis.Add(mean[i]);
-            //}
-
-            //string outputfilename = $"{strategy.Name}_{DateTime.Now.ToString("yyyy_MM_dd")}_{Guid.NewGuid()}.pdf";
-            //object arg = new
-            //{
-            //    filename = outputfilename,
-            //    x = xAxis.ToArray(),
-            //    y = yAxis.ToArray()
-            //};
-            //string jsonStr = JsonConvert.SerializeObject(arg);
-            //BsonDocument argsBson = BsonDocument.Parse(JsonConvert.SerializeObject(arg));
-
-            //bool saveInputFile = true;
-
-            //string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
-
-            //string outputString = null;
-            //// create new process start info 
-            //ProcessStartInfo prcStartInfo = new ProcessStartInfo
-            //{
-            //    // full path of the Python interpreter 'python.exe'
-            //    FileName = @"C:\Users\barne\anaconda3\python.exe", // string.Format(@"""{0}""", "python.exe"),
-            //    UseShellExecute = false,
-            //    RedirectStandardOutput = true,
-            //    CreateNoWindow = false
-            //};
-
-            //try
-            //{
-            //    // write input arguments to .txt file 
-            //    using (StreamWriter sw = new StreamWriter(argsFile))
-            //    {
-            //        sw.WriteLine(argsBson);
-            //        prcStartInfo.Arguments = string.Format("{0} {1}", string.Format(@"""{0}""", pyScriptPath), string.Format(@"""{0}""", argsFile));
-            //    }
-            //    // start process
-            //    using (Process process = Process.Start(prcStartInfo))
-            //    {
-            //        // read standard output JSON string
-            //        using (StreamReader myStreamReader = process.StandardOutput)
-            //        {
-            //            outputString = myStreamReader.ReadLine();
-            //            process.WaitForExit();
-            //        }
-            //    }
-            //}
-            //finally
-            //{
-            //    // delete/save temporary .txt file 
-            //    if (!saveInputFile)
-            //    {
-            //        File.Delete(argsFile);
-            //    }
-            //}
-            //Console.WriteLine(outputString);
-
+            
             // save report uri to database
             try
             {
