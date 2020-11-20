@@ -27,6 +27,13 @@ namespace StrategyBuilder.Api.Controllers
             DateTime toDate = DateTime.Parse(to);
             int id = int.Parse(strategyId);
             await _backTestingEngine.Execute(fromDate, toDate, symbol, id);
-        } 
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteBackTestingResult(int resultID)
+        {
+            _backTestingEngine.DeleteBackTestingResult(resultID);
+            return Ok();
+        }
     }
 }

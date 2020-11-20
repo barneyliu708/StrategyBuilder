@@ -26,7 +26,17 @@ namespace StrategyBuilder.Service
         {
             _stockDataRepo = stockDataRepo;
             _strategyService = strategyService;
-        } 
+        }
+
+        public void DeleteBackTestingResult(int resultId)
+        {
+            var report = _dbContext.Set<BackTestingResult>().FirstOrDefault(x => x.Id == resultId);
+            if (report != null)
+            {
+                _dbContext.Remove(report);
+                _dbContext.SaveChanges();
+            }
+        }
 
         public async Task Execute(DateTime from, DateTime to, string symbol, int strategyId, int eventdatefrom = -5, int eventdateto = 5)
         {
