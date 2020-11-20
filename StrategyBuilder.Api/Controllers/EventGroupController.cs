@@ -39,8 +39,10 @@ namespace StrategyBuilder.Api.Controllers
 
         // POST api/<EventGroupController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] EventGroup eventGroup)
         {
+            _eventService.CreateEventGroup(eventGroup);
+            return Ok();
         }
 
         // PUT api/<EventGroupController>/5

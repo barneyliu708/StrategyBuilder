@@ -43,7 +43,10 @@ namespace StrategyBuilder.Repository
             Dictionary<DateTime, StockPriceAdjustDaily> result = new Dictionary<DateTime, StockPriceAdjustDaily>();
             foreach(var kv in convertedprices)
             {
-                result[kv.Key] = kv.Value;
+                if (kv.Key >= from && kv.Key <= to)
+                {
+                    result[kv.Key] = kv.Value;
+                }
             }
 
             return result;

@@ -9,5 +9,6 @@ namespace StrategyBuilder.Service.Interfaces
     {
         IEnumerable<Strategy> GetAllStrategiesByUserId(int userId);
         Strategy GetStrategiesByStrategyId(int strategyId);
+        void AddNewStrategy(Strategy strategy);
     }
 }

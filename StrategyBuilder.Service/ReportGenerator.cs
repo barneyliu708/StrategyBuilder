@@ -17,9 +17,9 @@ namespace StrategyBuilder.Service
                                             int eventdatefrom, 
                                             int eventdateto, 
                                             NegativeIndexArray<decimal> meanResult, 
-                                            string executedOn,
-                                            string executeFrom,
-                                            string executeTo)
+                                            DateTime executedOn,
+                                            DateTime executeFrom,
+                                            DateTime executeTo)
         {
             ///////////////////////
             // generate report
@@ -36,16 +36,16 @@ namespace StrategyBuilder.Service
                 yAxis.Add(meanResult[i]);
             }
 
-            string outputfilename = $"{strategyName}_{symbol}_{DateTime.Now:yyyy_MM_dd}_{Guid.NewGuid()}.pdf";
+            string outputfilename = $"{strategyName}_{symbol}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{Guid.NewGuid()}.pdf";
             object arg = new
             {
                 filename = outputfilename,
                 strategyname = strategyName,
                 strategydescription = description,
                 symbol = symbol,
-                executedon = executedOn,
-                executefrom = executeFrom,
-                executeto = executeTo,
+                executedon = executedOn.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                executefrom = executeFrom.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                executeto = executeTo.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 x = xAxis.ToArray(),
                 y = yAxis.ToArray()
             };

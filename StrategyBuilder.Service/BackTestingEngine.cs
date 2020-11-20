@@ -37,29 +37,29 @@ namespace StrategyBuilder.Service
             List<NegativeIndexArray<decimal>> results = new List<NegativeIndexArray<decimal>>();
             foreach (Event e in events)
             {
-                if (stockprices.ContainsKey(e.Occurrence))
+                if (e.Occurrence.AddDays(eventdatefrom) >= from && e.Occurrence.AddDays(eventdateto) <= to)
                 {
                     var curResult = new NegativeIndexArray<decimal>(Math.Max(-1 * eventdatefrom, eventdateto));
-                    curResult[0] += stockprices[e.Occurrence].Closed;
+                    DateTime current = stockprices.GetNearestAvailableDate(e.Occurrence);
+                    curResult[0] = stockprices[current].Closed;
 
                     // backward lookup
-                    DateTime current = e.Occurrence;
                     DateTime previous;
                     for (int i = -1; i >= eventdatefrom; i--)
                     {
                         previous = stockprices.GetPreviousAvailableDate(current);
-                        curResult[i] += stockprices[previous].Closed;
+                        curResult[i] = stockprices[previous].Closed;
 
                         current = previous;
                     }
 
                     // forward lookup
-                    current = e.Occurrence;
+                    current = stockprices.GetNearestAvailableDate(e.Occurrence);
                     DateTime next;
                     for (int i = 1; i <= eventdateto; i++)
                     {
                         next = stockprices.GetNextAvailableDate(current);
-                        curResult[i] += stockprices[next].Closed;
+                        curResult[i] = stockprices[next].Closed;
 
                         current = next;
                     }
@@ -95,9 +95,9 @@ namespace StrategyBuilder.Service
                                                               eventdatefrom, 
                                                               eventdateto, 
                                                               mean, 
-                                                              DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), 
-                                                              from.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                                                              to.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                                                              DateTime.Now, 
+                                                              from,
+                                                              to);
             
             // save report uri to database
             try

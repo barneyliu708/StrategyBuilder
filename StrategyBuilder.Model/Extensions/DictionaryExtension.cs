@@ -27,5 +27,31 @@ namespace StrategyBuilder.Model.Extensions
             }
             return maxlookup == 0 ? new DateTime() : result;
         }
+
+        public static DateTime GetNearestAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 5)
+        {
+            if (dict.ContainsKey(current))
+            {
+                return current;
+            }
+            DateTime fw = current.AddDays(1);
+            DateTime bw = current.AddDays(-1);
+            while (!dict.ContainsKey(fw) && !dict.ContainsKey(bw) && maxlookup > 0)
+            {
+                fw = current.AddDays(1);
+                bw = current.AddDays(-1);
+                maxlookup--;
+            }
+            DateTime result = new DateTime();
+            if (dict.ContainsKey(fw))
+            {
+                result = fw;
+            }
+            if (dict.ContainsKey(bw))
+            {
+                result = bw;
+            }
+            return result;
+        }
     }
 }

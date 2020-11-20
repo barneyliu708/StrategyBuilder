@@ -17,7 +17,7 @@ namespace StrategyBuilder.Repository.Entities
         [StringLength(100)]
         public string Name { get; set; }
 
-        [StringLength(255)]
+        [StringLength(1000)]
         public string Description { get; set; }
 
         [Required]

@@ -17,13 +17,17 @@ namespace StrategyBuilder.Service
 
         public void AddEvents(int eventGroupId, IEnumerable<DateTime> occurrances)
         {
-            throw new NotImplementedException();
+            //var events = _dbContext.Set<Event>().Where(e => e.EventGroup.Id == eventGroupId);
+            //_dbContext.RemoveRange(events);
+            //_dbContext.SaveChanges();
+            //var newEvents = occurrances.Select(o => new Event() { Occurrence = o, EventGroup = })
+            //_dbContext.AddRange();
         }
 
-        public void CreateEventGroup(string name, string description = null)
+        public void CreateEventGroup(EventGroup eventGroup)
         {
-
-            throw new NotImplementedException();
+            string query = $"Insert Into [EventGroups] ([Name], [Description], [CreatedById]) Values('{eventGroup.Name}', '{eventGroup.Description}', {eventGroup.CreatedBy.Id})";
+            _dbContext.Database.ExecuteSqlCommand(query);
         }
 
         public IEnumerable<EventGroup> GetAllEventGroupsByUserId(int userId)

@@ -39,8 +39,10 @@ namespace StrategyBuilder.Api.Controllers
 
         // POST api/<StrategyController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Strategy strategy)
         {
+            _strategyService.AddNewStrategy(strategy);
+            return Ok();
         }
 
         // PUT api/<StrategyController>/5

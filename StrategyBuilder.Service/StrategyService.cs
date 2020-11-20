@@ -16,6 +16,12 @@ namespace StrategyBuilder.Service
 
         }
 
+        public void AddNewStrategy(Strategy strategy)
+        {
+            string query = $"  Insert Into [Strategies] ([Name], [Description], [CreatedById]) Values('{strategy.Name}', '{strategy.Description}', {strategy.CreatedBy.Id})";
+            _dbContext.Database.ExecuteSqlCommand(query);
+        }
+
         public IEnumerable<Strategy> GetAllStrategiesByUserId(int userId)
         {
             return _dbContext.Set<Strategy>()
