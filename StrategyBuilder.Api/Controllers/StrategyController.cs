@@ -46,8 +46,8 @@ namespace StrategyBuilder.Api.Controllers
         }
 
         // PUT api/<StrategyController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{strategyId}")]
+        public void UpdateEventGroupsInStrategy(int strategyId, [FromBody] IEnumerable<EventGroup> eventGroups)
         {
         }
 
