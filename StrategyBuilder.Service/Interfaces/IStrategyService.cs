@@ -10,5 +10,6 @@ namespace StrategyBuilder.Service.Interfaces
         IEnumerable<Strategy> GetAllStrategiesByUserId(int userId);
         Strategy GetStrategiesByStrategyId(int strategyId);
         void AddNewStrategy(Strategy strategy);
+        void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<int> eventGroupIds);
     }
 }

@@ -47,8 +47,10 @@ namespace StrategyBuilder.Api.Controllers
 
         // PUT api/<StrategyController>/5
         [HttpPut("{strategyId}")]
-        public void UpdateEventGroupsInStrategy(int strategyId, [FromBody] IEnumerable<EventGroup> eventGroups)
+        public IActionResult UpdateEventGroupsInStrategy(int strategyId, [FromBody] IEnumerable<int> eventGroupIds)
         {
+            _strategyService.UpdateEventGroupsInStrategy(strategyId, eventGroupIds);
+            return Ok();
         }
 
         // DELETE api/<StrategyController>/5

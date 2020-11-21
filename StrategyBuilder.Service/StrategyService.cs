@@ -39,5 +39,13 @@ namespace StrategyBuilder.Service
                              .Include(s => s.BackTestingResults)
                              .FirstOrDefault();
         }
+
+        public void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<int> eventGroupIds)
+        {
+            string queryold = $"Update [EventGroups] Set StrategyId = NULL Where StrategyId = {strategyId}";
+            string querynew = $"Update [EventGroups] Set StrategyId = {strategyId} Where [Id] in ({string.Join(",", eventGroupIds)})";
+            _dbContext.Database.ExecuteSqlCommand(queryold);
+            _dbContext.Database.ExecuteSqlCommand(querynew);
+        }
     }
 }
