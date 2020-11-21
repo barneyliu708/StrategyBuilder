@@ -54,7 +54,7 @@ namespace StrategyBuilder.Service
             string jsonStr = JsonConvert.SerializeObject(arg);
             BsonDocument argsBson = BsonDocument.Parse(JsonConvert.SerializeObject(arg));
 
-            bool saveInputFile = true;
+            bool saveInputFile = false;
 
             string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
 
