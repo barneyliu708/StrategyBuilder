@@ -15,17 +15,19 @@ namespace StrategyBuilder.Api.Controllers
     public class EventGroupController : ControllerBase
     {
         private IEventService _eventService;
+        private IUserService _userService;
 
-        public EventGroupController(IEventService eventService)
+        public EventGroupController(IEventService eventService, IUserService userService)
         {
             _eventService = eventService;
+            _userService = userService;
         }
 
         // GET: api/<EventGroupController>
         [HttpGet]
         public IEnumerable<EventGroup> GetAllEventGroupsByUserId()
         {
-            int userId = 2;
+            int userId = _userService.GetValidUserId();
             var eventList = _eventService.GetAllEventGroupsByUserId(userId);
             return eventList;
         }

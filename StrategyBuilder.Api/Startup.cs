@@ -45,6 +45,7 @@ namespace StrategyBuilder.Api
             services.AddTransient<IStockDataRepo, StockDataRepo>();
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IStrategyService, StrategyService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IBackTestingEngine, BackTestingEngine>();
             services.AddTransient<IReportGenerator, ReportGenerator>();
 
@@ -74,6 +75,13 @@ namespace StrategyBuilder.Api
             {
                 endpoints.MapControllers();
             });
+
+            // create db if not exist
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<DbContext>();
+                context.Database.Migrate();
+            }
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

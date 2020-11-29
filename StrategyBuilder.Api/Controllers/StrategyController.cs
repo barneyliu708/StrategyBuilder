@@ -15,17 +15,19 @@ namespace StrategyBuilder.Api.Controllers
     public class StrategyController : ControllerBase
     {
         private IStrategyService _strategyService;
+        private IUserService _userService;
 
-        public StrategyController(IStrategyService strategyService)
+        public StrategyController(IStrategyService strategyService, IUserService userService)
         {
             _strategyService = strategyService;
+            _userService = userService;
         }
 
         // GET: api/<StrategyController>
         [HttpGet]
         public IEnumerable<Strategy> GetAllStrategiesByUserId()
         {
-            int userId = 2;
+            int userId = _userService.GetValidUserId();
             var eventList = _strategyService.GetAllStrategiesByUserId(userId);
             return eventList;
         }
