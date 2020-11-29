@@ -41,11 +41,14 @@ namespace StrategyBuilder.Api
 
             // Dependency Injection
             services.AddTransient<DbContext, StrategyBuilderContext>();
+            services.AddDbContext<StrategyBuilderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("StrategyBuilderDatabase")));
             services.AddTransient<IStockDataRepo, StockDataRepo>();
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IStrategyService, StrategyService>();
             services.AddTransient<IBackTestingEngine, BackTestingEngine>();
             services.AddTransient<IReportGenerator, ReportGenerator>();
+
+            
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();

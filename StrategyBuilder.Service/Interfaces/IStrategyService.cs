@@ -11,5 +11,6 @@ namespace StrategyBuilder.Service.Interfaces
         Strategy GetStrategiesByStrategyId(int strategyId);
         void AddNewStrategy(Strategy strategy);
         void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<int> eventGroupIds);
+        int InsertIntoBackTestingResult(DateTime executeOn, DateTime startFrom, DateTime endTo, string reportUri, int executedBy, int strategyId);
     }
 }

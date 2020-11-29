@@ -115,10 +115,7 @@ namespace StrategyBuilder.Service
             // save report uri to database
             try
             {
-                using(var db = new StrategyBuilderContext())
-                {
-                    db.InsertIntoBackTestingResult(DateTime.Now, from, to, reportUri, strategy.CreatedBy.Id, strategyId);
-                }
+                _strategyService.InsertIntoBackTestingResult(DateTime.Now, from, to, reportUri, strategy.CreatedBy.Id, strategyId);
             } 
             catch (Exception ex)
             {
