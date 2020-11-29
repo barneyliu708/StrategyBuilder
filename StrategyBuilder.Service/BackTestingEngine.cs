@@ -21,11 +21,13 @@ namespace StrategyBuilder.Service
     {
         private IStockDataRepo _stockDataRepo;
         private IStrategyService _strategyService;
+        private IReportGenerator _reportGenerator;
 
-        public BackTestingEngine(DbContext dbContext, IStockDataRepo stockDataRepo, IStrategyService strategyService) : base(dbContext) 
+        public BackTestingEngine(DbContext dbContext, IStockDataRepo stockDataRepo, IStrategyService strategyService, IReportGenerator reportGenerator) : base(dbContext) 
         {
             _stockDataRepo = stockDataRepo;
             _strategyService = strategyService;
+            _reportGenerator = reportGenerator;
         }
 
         public void DeleteBackTestingResult(int resultId)
@@ -99,7 +101,7 @@ namespace StrategyBuilder.Service
             }
 
             // generate report
-            string reportUri = ReportGenerator.GenerateReport(strategy.Name, 
+            string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description, 
                                                               symbol,
                                                               strategy.EventGroups.Select(eg => eg.Name).ToArray(),

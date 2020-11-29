@@ -5,6 +5,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dividend Announcement Event Trading Strategy_AAPL_2015-01-01_2020-11-20_3bd32b92-3906-42bd-a487-5e4b0e8383f8.pdf" />
+    <None Remove="Dividend Announcement Event Trading Strategy_AAPL_2016-01-01_2017-12-31_e7c2d24b-b457-46e2-9847-a810a9bfa4ea.pdf" />
+    <None Remove="Dividend Announcement Event Trading Strategy_AAPL_2017-01-01_2020-11-20_e104b26c-10ca-446a-933b-4bc854d17f9f.pdf" />
+    <None Remove="Dividend Announcement Event Trading Strategy_AAPL_2018-01-01_2020-11-20_3c5a2551-5ce6-4a45-8462-67b3ba619a10.pdf" />
+    <None Remove="Dividend Announcement Event Trading Strategy_AAPL_2019-01-01_2020-11-20_5963d698-ef1f-490d-9959-bfb248aca4ff.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2015-01-01_2020-11-20_3274bcf0-a0b6-485d-befc-024c8599ef23.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2015-01-01_2020-11-21_34c7172d-1d0f-4684-a422-c83af3101be4.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2015-01-01_2020-11-21_cf18f212-b8cb-4efa-bfe8-24996a7a49c4.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2016-01-01_2020-11-21_a9f9dc8b-e738-4ea6-ab60-8d649af3d2b5.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2017-01-01_2018-12-31_0b38e431-7738-4b76-a6dd-f87ec408f728.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2018-01-01_2018-12-31_a0513e2b-0cf0-4358-8cd7-98205d423d30.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2019-01-01_2019-12-31_73f1d918-a91d-4229-b60c-9817812529bf.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2019-01-01_2019-12-31_a6b3ca5e-c095-4ea9-b564-15da70210328.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2019-01-01_2019-12-31_bd36504f-836e-4cb6-b137-5c03fa4b073d.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020-01-01_2020-11-19_4f9ec0b0-9497-4e3a-ae41-7d444397751a.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_0ae5db14-79b0-4e7c-8588-2eae78e50087.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_51cbea6e-f939-474a-8fbe-eb9c9c3cb838.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_7804e16e-da6a-4f9e-a256-185bf49472ec.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_b160ee27-fae1-4ecb-a9a6-98c051d1c3ea.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_b6fee0d9-ec95-49f5-abdd-5e2e0ec7001f.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_AAPL_2020_11_19_defd22de-ba23-4df0-99ca-3600ee5dc6cd.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_GOOGL_2020_11_19_3db57202-0726-45ea-97ef-3a31cef271d4.pdf" />
+    <None Remove="Earnings Events Driven Trading Strategy_GOOGL_2020_11_19_a9efc332-8958-4e6c-b508-9fa7ca228444.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_AAPL_2016-01-01_2020-11-20_180b92c4-8360-4609-8760-a9a63c76a143.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_AAPL_2016-01-01_2020-11-20_301b6107-449a-41c8-ac40-e53e099c8b89.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_AAPL_2016-01-01_2020-11-20_9d9c4213-29bd-4401-aeea-1751826c6a51.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_AAPL_2016-01-01_2020-11-21_731dfc27-62c4-4c34-b491-b626d2459430.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_GOOGL_2015-01-01_2020-11-20_ea01b37e-d2aa-4ca4-ab7f-997ea6af3cef.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_GOOGL_2015-01-01_2020-11-21_0f2ba2fc-1ce0-4fc7-9393-90d667f2036f.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_GOOGL_2016-01-01_2020-11-20_1bd9ac1a-003d-4a0c-863b-662461291894.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_GOOGL_2016-01-01_2020-11-21_c5ed3ad0-00cf-4fed-864b-5ee73ee71d38.pdf" />
+    <None Remove="Fed Fund Rates Change Event Trading Strategy_IBM_2016-01-01_2020-11-20_278f9c36-aded-4d63-9871-6a735e7afde9.pdf" />
     <None Remove="First Strategy Demo_2020_11_15_036186ee-5c78-4fde-8ce4-03b9abf3e538.pdf" />
     <None Remove="First Strategy Demo_2020_11_15_04c97286-66ef-4703-a709-439cd6341288.pdf" />
     <None Remove="First Strategy Demo_2020_11_15_166f1042-672c-4960-928e-0528d26fa77e.pdf" />

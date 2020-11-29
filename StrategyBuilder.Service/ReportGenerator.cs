@@ -1,6 +1,8 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 using StrategyBuilder.Model;
+using StrategyBuilder.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,9 +11,31 @@ using System.Text;
 
 namespace StrategyBuilder.Service
 {
-    public class ReportGenerator
+    public class ReportGenerator: IReportGenerator
     {
-        public static string GenerateReport(string strategyName, 
+        private IConfiguration _config;
+        private string _pyScriptPath;
+
+        public ReportGenerator(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        /// <summary>
+        /// generate report and return the string of report pdf file location
+        /// </summary>
+        /// <param name="strategyName"></param>
+        /// <param name="description"></param>
+        /// <param name="symbol"></param>
+        /// <param name="eventNames"></param>
+        /// <param name="eventdatefrom"></param>
+        /// <param name="eventdateto"></param>
+        /// <param name="meanResult"></param>
+        /// <param name="executedOn"></param>
+        /// <param name="executeFrom"></param>
+        /// <param name="executeTo"></param>
+        /// <returns></returns>
+        public string GenerateReport(string strategyName, 
                                             string description, 
                                             string symbol,
                                             string[] eventNames,
@@ -22,12 +46,9 @@ namespace StrategyBuilder.Service
                                             DateTime executeFrom,
                                             DateTime executeTo)
         {
-            ///////////////////////
-            // generate report
-            //////////////////////
-
             // full path to .py file
-            string pyScriptPath = @"C:\Users\barne\OneDrive\Documents\CPT\HU\Semester 5\GRAD 695\Project\ReportGeneratorScript.py";
+            _pyScriptPath = _config["ReportScriptLocation"];
+
             // convert input arguments to JSON string
             List<int> xAxis = new List<int>();
             List<decimal> yAxis = new List<decimal>();
@@ -37,10 +58,11 @@ namespace StrategyBuilder.Service
                 yAxis.Add(meanResult[i]);
             }
 
+            string outputfileroot = _config["ReportResultPhysicalLocation"];
             string outputfilename = $"{strategyName}_{symbol}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{Guid.NewGuid()}.pdf";
             object arg = new
             {
-                filename = outputfilename,
+                filename = Path.Combine(outputfileroot, outputfilename),
                 strategyname = strategyName,
                 strategydescription = description,
                 symbol = symbol,
@@ -56,14 +78,14 @@ namespace StrategyBuilder.Service
 
             bool saveInputFile = false;
 
-            string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
+            string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(_pyScriptPath), Guid.NewGuid());
 
             string outputString = null;
             // create new process start info 
             ProcessStartInfo prcStartInfo = new ProcessStartInfo
             {
                 // full path of the Python interpreter 'python.exe'
-                FileName = @"C:\Users\barne\anaconda3\python.exe", // string.Format(@"""{0}""", "python.exe"),
+                FileName = _config["PythonInterpreterLocation"], // string.Format(@"""{0}""", "python.exe"),
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = false
@@ -75,7 +97,7 @@ namespace StrategyBuilder.Service
                 using (StreamWriter sw = new StreamWriter(argsFile))
                 {
                     sw.WriteLine(argsBson);
-                    prcStartInfo.Arguments = string.Format("{0} {1}", string.Format(@"""{0}""", pyScriptPath), string.Format(@"""{0}""", argsFile));
+                    prcStartInfo.Arguments = string.Format("{0} {1}", string.Format(@"""{0}""", _pyScriptPath), string.Format(@"""{0}""", argsFile));
                 }
                 // start process
                 using (Process process = Process.Start(prcStartInfo))
@@ -97,8 +119,12 @@ namespace StrategyBuilder.Service
                 }
             }
             Console.WriteLine(outputString);
-
-            return "http://127.0.0.1:8887/" + outputfilename;
+            string webserver = _config["ReportResultWebServer"];
+            if (string.IsNullOrWhiteSpace(webserver))
+            {
+                webserver = "http://127.0.0.1:8887/";
+            }
+            return Path.Combine(webserver, outputfilename);
         }
     }
 }

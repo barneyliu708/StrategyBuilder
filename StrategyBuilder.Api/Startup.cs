@@ -45,6 +45,7 @@ namespace StrategyBuilder.Api
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IStrategyService, StrategyService>();
             services.AddTransient<IBackTestingEngine, BackTestingEngine>();
+            services.AddTransient<IReportGenerator, ReportGenerator>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();

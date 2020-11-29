@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Service", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Model", "StrategyBuilder.Model\StrategyBuilder.Model.csproj", "{BAFE3D71-762F-4F2C-B870-18E0E7848E01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyBuilder.Repository", "StrategyBuilder.Repository\StrategyBuilder.Repository.csproj", "{5AEB0182-6C9C-4BCB-B4E1-DC0266AEA3D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Repository", "StrategyBuilder.Repository\StrategyBuilder.Repository.csproj", "{5AEB0182-6C9C-4BCB-B4E1-DC0266AEA3D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{23624522-04BF-40BB-A641-882D049902AB}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\ReportGeneratorScript.py = Scripts\ReportGeneratorScript.py
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
