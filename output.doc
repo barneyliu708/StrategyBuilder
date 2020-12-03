@@ -1,0 +1,95 @@
+Folder PATH listing for volume Windows
+Volume serial number is 00C1-AED2
+C:.
+|   .gitattributes
+|   .gitignore
+|   output.doc
+|   README.md
+|   StrategyBuilder.sln
+|   
++---Reports
+|       Dividend Announcement Event Trading Strategy_AAPL_2017-01-01_2020-11-28_06ae6a61-3cb6-4e7b-8f4b-dd17fcb7f345.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2019-01-01_2020-11-28_a289aece-5b5d-45b3-a58a-d64c3d86bdbb.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2018-01-01_2020-11-28_2f45ca79-6eff-4389-840c-98d997a492ce.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2019-01-01_2020-11-28_00e4b2c5-811b-4aac-ab95-918ab6baa6c1.pdf
+|       Fed Fund Rates Change Event Trading Strategy_IBM_2018-01-01_2020-12-02_6c4fdf0c-2534-46f1-be4c-30899296cc6a.pdf
+|       test.txt
+|       
++---Scripts
+|       ReportGeneratorScript.py
+|       
++---StrategyBuilder.Api
+|   |   appsettings.Development.json
+|   |   appsettings.json
+|   |   ClassDiagram.cd
+|   |   Program.cs
+|   |   Startup.cs
+|   |   StrategyBuilder.Api.csproj
+|   |   StrategyBuilder.Api.csproj.user
+|   |   WeatherForecast.cs
+|   |   
+|   +---Controllers
+|   |       BackTestingController.cs
+|   |       EventGroupController.cs
+|   |       StrategyController.cs
+|   |       UserController.cs
+|   |       
+|   \---Properties
+|           launchSettings.json
+|           
++---StrategyBuilder.Model
+|   |   NegativeIndexArray.cs
+|   |   OrderedDictionary.cs
+|   |   StrategyBuilder.Model.csproj
+|   |   
+|   \---Extensions
+|           DictionaryExtension.cs
+|           
++---StrategyBuilder.Repository
+|   |   StockDataRepo.cs
+|   |   StrategyBuilder.Repository.csproj
+|   |   StrategyBuilderContext.cs
+|   |   
+|   +---Entities
+|   |       BackTestingResult.cs
+|   |       Event.cs
+|   |       EventGroup.cs
+|   |       StockPriceAdjustDaily.cs
+|   |       Strategy.cs
+|   |       User.cs
+|   |       
+|   +---Interfaces
+|   |       IFileRepo.cs
+|   |       IStockDataRepo.cs
+|   |       
+|   \---Migrations
+|           20201012033903_CreateDatabase.cs
+|           20201012033903_CreateDatabase.Designer.cs
+|           20201101225917_AddStrategyTable.cs
+|           20201101225917_AddStrategyTable.Designer.cs
+|           20201101230437_AddReferenceInEventGroupTable.cs
+|           20201101230437_AddReferenceInEventGroupTable.Designer.cs
+|           20201101233124_AddBackTestingResultTable.cs
+|           20201101233124_AddBackTestingResultTable.Designer.cs
+|           20201120043545_UpdateDescriptionField.cs
+|           20201120043545_UpdateDescriptionField.Designer.cs
+|           20201129072124_AddEarningFillingDateData.cs
+|           20201129072124_AddEarningFillingDateData.Designer.cs
+|           StrategyBuilderContextModelSnapshot.cs
+|           
+\---StrategyBuilder.Service
+    |   BackTestingEngine.cs
+    |   BaseService.cs
+    |   EventService.cs
+    |   ReportGenerator.cs
+    |   StrategyBuilder.Service.csproj
+    |   StrategyService.cs
+    |   UserService.cs
+    |   
+    \---Interfaces
+            IBackTestingEngine.cs
+            IEventService.cs
+            IReportGenerator.cs
+            IStrategyService.cs
+            IUserService.cs
+            

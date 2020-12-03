@@ -27,7 +27,8 @@ namespace StrategyBuilder.Service
             return _dbContext.Set<Strategy>()
                              .Where(s => s.CreatedBy.Id == userId)
                              .Include(s => s.EventGroups)
-                             .Include(s => s.BackTestingResults);
+                             .Include(s => s.BackTestingResults)
+                             .OrderByDescending(s => s.Id);
         }
 
         public Strategy GetStrategiesByStrategyId(int strategyId)
