@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StrategyBuilder.Repository.Entities;
+using StrategyBuilder.Service.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +14,13 @@ namespace StrategyBuilder.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -28,8 +37,9 @@ namespace StrategyBuilder.Api.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] User newUser)
         {
+            _userService.AddUser(newUser);
         }
 
         // PUT api/<UserController>/5

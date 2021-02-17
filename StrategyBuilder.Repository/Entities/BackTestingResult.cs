@@ -21,11 +21,6 @@ namespace StrategyBuilder.Repository.Entities
 
         [Required]
         public string ReportFileUri { get; set; }
-
-        [Required]
-        public User ExecutedBy { get; set; }
-
-        public Strategy Strategy { get; set; }
     }
 
 }

@@ -11,7 +11,6 @@ namespace StrategyBuilder.Repository.Entities
         {
             EventGroups = new List<EventGroup>();
             Strategies = new List<Strategy>();
-            BackTestingResults = new List<BackTestingResult>();
         }
 
         [Key]
@@ -30,6 +29,5 @@ namespace StrategyBuilder.Repository.Entities
 
         public ICollection<EventGroup> EventGroups { get; set; }
         public ICollection<Strategy> Strategies { get; set; }
-        public ICollection<BackTestingResult> BackTestingResults { get; set; }
     }
 }

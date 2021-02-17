@@ -6,8 +6,8 @@ namespace StrategyBuilder.Repository
 {
     public class StrategyBuilderContext : DbContext
     {
-        //public StrategyBuilderContext() { }
-        public StrategyBuilderContext(DbContextOptions<StrategyBuilderContext> options) : base (options)
+        // public StrategyBuilderContext() { }
+        public StrategyBuilderContext(DbContextOptions<StrategyBuilderContext> options) : base(options)
         {
         }
         public DbSet<Event> Events { get; set; }
@@ -18,7 +18,23 @@ namespace StrategyBuilder.Repository
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //    optionsBuilder.UseSqlServer(@"Server=localhost\;Database=StrategyBuilderTest1;Trusted_Connection=True;MultipleActiveResultSets=true");
+        //    optionsBuilder.UseSqlServer(@"Server=localhost\;Database=StrategyBuilderTest7;Trusted_Connection=True;MultipleActiveResultSets=true");
         //}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<JoinStrategyEventGroup>()
+                .HasKey(j => new { j.StrategyId, j.EventGroupId });
+            modelBuilder.Entity<JoinStrategyEventGroup>()
+                .HasOne(j => j.Strategy)
+                .WithMany(s => s.JoinStrategyEventGroups)
+                .HasForeignKey(j => j.StrategyId);
+            modelBuilder.Entity<JoinStrategyEventGroup>()
+                .HasOne(j => j.EventGroup)
+                .WithMany(e => e.JoinStrategyEventGroups)
+                .HasForeignKey(j => j.EventGroupId);
+
+
+        }
     }
 }

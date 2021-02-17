@@ -26,7 +26,7 @@ namespace StrategyBuilder.Service
         {
             return _dbContext.Set<Strategy>()
                              .Where(s => s.CreatedBy.Id == userId)
-                             .Include(s => s.EventGroups)
+                             .Include(s => s.JoinStrategyEventGroups.Select(j => j.EventGroup))
                              .Include(s => s.BackTestingResults)
                              .OrderByDescending(s => s.Id);
         }
@@ -36,7 +36,7 @@ namespace StrategyBuilder.Service
             return _dbContext.Set<Strategy>()
                              .Where(s => s.Id == strategyId)
                              .Include(s => s.CreatedBy)
-                             .Include(s => s.EventGroups).ThenInclude(s => s.Events)
+                             .Include(s => s.JoinStrategyEventGroups.Select(j => j.EventGroup)).ThenInclude(s => s.Events)
                              .Include(s => s.BackTestingResults)
                              .FirstOrDefault();
         }

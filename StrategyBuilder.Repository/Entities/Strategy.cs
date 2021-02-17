@@ -9,7 +9,7 @@ namespace StrategyBuilder.Repository.Entities
     {
         public Strategy()
         {
-            EventGroups = new List<EventGroup>();
+            JoinStrategyEventGroups = new List<JoinStrategyEventGroup>();
             BackTestingResults = new List<BackTestingResult>();
         }
 
@@ -26,7 +26,7 @@ namespace StrategyBuilder.Repository.Entities
         [Required]
         public User CreatedBy { get; set; }
 
-        public ICollection<EventGroup> EventGroups { get; set; }
+        public ICollection<JoinStrategyEventGroup> JoinStrategyEventGroups { get; set; }
         public ICollection<BackTestingResult> BackTestingResults { get; set; }
     }
 }

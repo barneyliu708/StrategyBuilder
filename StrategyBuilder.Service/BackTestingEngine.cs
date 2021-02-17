@@ -44,8 +44,8 @@ namespace StrategyBuilder.Service
         {
             Dictionary<DateTime, StockPriceAdjustDaily> stockprices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
             Strategy strategy = _strategyService.GetStrategiesByStrategyId(strategyId);
-            IEnumerable<Event> events = strategy.EventGroups.SelectMany(x => x.Events);
-
+            // IEnumerable<Event> events = strategy.EventGroups.SelectMany(x => x.Events);
+            IEnumerable<Event> events = strategy.JoinStrategyEventGroups.Select(j => j.EventGroup).SelectMany(x => x.Events);
             List<NegativeIndexArray<decimal>> results = new List<NegativeIndexArray<decimal>>();
             foreach (Event e in events)
             {
@@ -104,7 +104,7 @@ namespace StrategyBuilder.Service
             string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description, 
                                                               symbol,
-                                                              strategy.EventGroups.Select(eg => eg.Name).ToArray(),
+                                                              strategy.JoinStrategyEventGroups.Select(j => j.EventGroup.Name).ToArray(),
                                                               eventdatefrom, 
                                                               eventdateto, 
                                                               mean, 

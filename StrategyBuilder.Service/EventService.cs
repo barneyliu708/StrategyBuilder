@@ -26,15 +26,16 @@ namespace StrategyBuilder.Service
 
         public void CreateEventGroup(EventGroup eventGroup)
         {
-            string query = $"Insert Into [EventGroups] ([Name], [Description], [CreatedById]) Values('{eventGroup.Name}', '{eventGroup.Description}', {eventGroup.CreatedBy.Id})";
-            _dbContext.Database.ExecuteSqlCommand(query);
+            //string query = $"Insert Into [EventGroups] ([Name], [Description], [CreatedById]) Values('{eventGroup.Name}', '{eventGroup.Description}', {eventGroup.CreatedBy.Id})";
+            //_dbContext.Database.ExecuteSqlCommand(query);
         }
 
         public IEnumerable<EventGroup> GetAllEventGroupsByUserId(int userId)
         {
-            return _dbContext.Set<EventGroup>()
-                             .Where(e => e.CreatedBy.Id == userId)
-                             .Include(e => e.Events);
+            //return _dbContext.Set<EventGroup>()
+            //                 .Where(e => e.CreatedBy.Id == userId)
+            //                 .Include(e => e.Events);
+            return _dbContext.Set<User>().FirstOrDefault(u => u.Id == userId)?.EventGroups;
         }
 
         public EventGroup GetEventGroupDetailsById(int eventGroupId)

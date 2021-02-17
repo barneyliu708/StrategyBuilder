@@ -7,6 +7,7 @@ namespace StrategyBuilder.Repository.Entities
     {
         public EventGroup()
         {
+            JoinStrategyEventGroups = new List<JoinStrategyEventGroup>();
             Events = new List<Event>();
         }
 
@@ -23,7 +24,7 @@ namespace StrategyBuilder.Repository.Entities
         [Required]
         public User CreatedBy { get; set; }
 
-        public Strategy Strategy { get; set; }
+        public ICollection<JoinStrategyEventGroup> JoinStrategyEventGroups { get; set; }
 
         public ICollection<Event> Events { get; set; }
     }

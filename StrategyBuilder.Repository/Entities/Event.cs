@@ -8,6 +8,5 @@ namespace StrategyBuilder.Repository.Entities
         [Key]
         public int Id { get; set; }
         public DateTime Occurrence { get; set; }
-        public EventGroup EventGroup { get; set; }
     }
 }

@@ -15,11 +15,18 @@ namespace StrategyBuilder.Service
 
         public int GetValidUserId()
         {
-            return _dbContext.Set<Strategy>()
-                             .Where(s => s.CreatedBy != null)
-                             .Include(s => s.CreatedBy)
-                             .FirstOrDefault()
-                             .CreatedBy.Id;
+            return 2;
+            //return _dbContext.Set<Strategy>()
+            //                 .Where(s => s.CreatedBy != null)
+            //                 .Include(s => s.CreatedBy)
+            //                 .FirstOrDefault()
+            //                 .CreatedBy.Id;
+        }
+
+        public void  AddUser(User newUser)
+        {
+            _dbContext.Set<User>().Add(newUser);
+            _dbContext.SaveChanges();
         }
     }
 }

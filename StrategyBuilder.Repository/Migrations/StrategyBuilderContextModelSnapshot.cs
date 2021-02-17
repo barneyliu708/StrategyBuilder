@@ -29,9 +29,6 @@ namespace StrategyBuilder.Repository.Migrations
                     b.Property<DateTime>("EndTo")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ExecutedById")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("ExecutedOn")
                         .HasColumnType("datetime2");
 
@@ -46,8 +43,6 @@ namespace StrategyBuilder.Repository.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ExecutedById");
 
                     b.HasIndex("StrategyId");
 
@@ -93,16 +88,26 @@ namespace StrategyBuilder.Repository.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("StrategyId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedById");
 
-                    b.HasIndex("StrategyId");
-
                     b.ToTable("EventGroups");
+                });
+
+            modelBuilder.Entity("StrategyBuilder.Repository.Entities.JoinStrategyEventGroup", b =>
+                {
+                    b.Property<int>("StrategyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventGroupId")
+                        .HasColumnType("int");
+
+                    b.HasKey("StrategyId", "EventGroupId");
+
+                    b.HasIndex("EventGroupId");
+
+                    b.ToTable("JoinStrategyEventGroup");
                 });
 
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Strategy", b =>
@@ -112,7 +117,7 @@ namespace StrategyBuilder.Repository.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedById")
+                    b.Property<int?>("CreatedById")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -159,20 +164,14 @@ namespace StrategyBuilder.Repository.Migrations
 
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.BackTestingResult", b =>
                 {
-                    b.HasOne("StrategyBuilder.Repository.Entities.User", "ExecutedBy")
-                        .WithMany("BackTestingResults")
-                        .HasForeignKey("ExecutedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StrategyBuilder.Repository.Entities.Strategy", "Strategy")
+                    b.HasOne("StrategyBuilder.Repository.Entities.Strategy", null)
                         .WithMany("BackTestingResults")
                         .HasForeignKey("StrategyId");
                 });
 
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Event", b =>
                 {
-                    b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", "EventGroup")
+                    b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", null)
                         .WithMany("Events")
                         .HasForeignKey("EventGroupId");
                 });
@@ -184,19 +183,28 @@ namespace StrategyBuilder.Repository.Migrations
                         .HasForeignKey("CreatedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("StrategyBuilder.Repository.Entities.JoinStrategyEventGroup", b =>
+                {
+                    b.HasOne("StrategyBuilder.Repository.Entities.EventGroup", "EventGroup")
+                        .WithMany("JoinStrategyEventGroups")
+                        .HasForeignKey("EventGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StrategyBuilder.Repository.Entities.Strategy", "Strategy")
-                        .WithMany("EventGroups")
-                        .HasForeignKey("StrategyId");
+                        .WithMany("JoinStrategyEventGroups")
+                        .HasForeignKey("StrategyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StrategyBuilder.Repository.Entities.Strategy", b =>
                 {
                     b.HasOne("StrategyBuilder.Repository.Entities.User", "CreatedBy")
                         .WithMany("Strategies")
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedById");
                 });
 #pragma warning restore 612, 618
         }
