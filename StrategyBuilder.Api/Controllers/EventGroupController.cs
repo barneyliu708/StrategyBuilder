@@ -24,33 +24,40 @@ namespace StrategyBuilder.Api.Controllers
         }
 
         // GET: api/<EventGroupController>
-        [HttpGet]
-        public IEnumerable<EventGroup> GetAllEventGroupsByUserId()
+        [HttpGet("{userid}")]
+        public IEnumerable<EventGroup> GetAllEventGroupsByUserId(int userid)
         {
-            int userId = _userService.GetValidUserId();
-            var eventList = _eventService.GetAllEventGroupsByUserId(userId);
+            var eventList = _eventService.GetAllEventGroupsByUserId(userid);
             return eventList;
         }
 
-        // GET api/<EventGroupController>/5
-        [HttpGet("{eventgoupid}")]
-        public string GetEventGroupDetails(int eventgoupid)
-        {
-            return "value";
-        }
+        //// GET api/<EventGroupController>/5
+        //[HttpGet("{eventgoupid}")]
+        //public string GetEventGroupDetails(int eventgoupid)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<EventGroupController>
         [HttpPost]
         public IActionResult Post([FromBody] EventGroup eventGroup)
         {
-            _eventService.CreateEventGroup(eventGroup);
+            _eventService.AddEventGroup(eventGroup);
             return Ok();
         }
 
         // PUT api/<EventGroupController>/5
         [HttpPut("{eventgoupid}")]
-        public void Put(int eventgoupid, [FromBody] string name)
+        public void Put([FromBody] EventGroup eventGroup)
         {
+        }
+
+        // PUT api/<EventGroupController>/5
+        [HttpPut("{eventgoupid}/events")]
+        public IActionResult PutEvents(int eventgoupid, [FromBody] IEnumerable<DateTime> eventList)
+        {
+            _eventService.UpdateEvents(eventgoupid, eventList);
+            return Ok();
         }
 
         // DELETE api/<EventGroupController>/5

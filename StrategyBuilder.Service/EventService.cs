@@ -15,27 +15,30 @@ namespace StrategyBuilder.Service
 
         }
 
-        public void AddEvents(int eventGroupId, IEnumerable<DateTime> occurrances)
+        public void UpdateEvents(int eventGroupId, IEnumerable<DateTime> occurrances)
         {
-            //var events = _dbContext.Set<Event>().Where(e => e.EventGroup.Id == eventGroupId);
-            //_dbContext.RemoveRange(events);
-            //_dbContext.SaveChanges();
-            //var newEvents = occurrances.Select(o => new Event() { Occurrence = o, EventGroup = })
-            //_dbContext.AddRange();
+            var eventGroup = _dbContext.Set<EventGroup>().Include(eg => eg.Events).First(s => s.Id == eventGroupId);
+            eventGroup.Events.Clear();
+            foreach (var dt in occurrances)
+            {
+                eventGroup.Events.Add(new Event() { Occurrence = dt });
+            }
+            _dbContext.SaveChanges();
         }
 
-        public void CreateEventGroup(EventGroup eventGroup)
+        public void AddEventGroup(EventGroup eventGroup)
         {
-            //string query = $"Insert Into [EventGroups] ([Name], [Description], [CreatedById]) Values('{eventGroup.Name}', '{eventGroup.Description}', {eventGroup.CreatedBy.Id})";
-            //_dbContext.Database.ExecuteSqlCommand(query);
+            var user = _dbContext.Set<User>().First(u => u.Id == eventGroup.CreatedBy.Id);
+            eventGroup.CreatedBy = user;
+            _dbContext.Set<EventGroup>().Add(eventGroup);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<EventGroup> GetAllEventGroupsByUserId(int userId)
         {
-            //return _dbContext.Set<EventGroup>()
-            //                 .Where(e => e.CreatedBy.Id == userId)
-            //                 .Include(e => e.Events);
-            return _dbContext.Set<User>().FirstOrDefault(u => u.Id == userId)?.EventGroups;
+            return _dbContext.Set<EventGroup>()
+                .Include(u => u.Events)
+                .Where(eg => eg.CreatedBy.Id == userId);
         }
 
         public EventGroup GetEventGroupDetailsById(int eventGroupId)

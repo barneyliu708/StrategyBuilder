@@ -15,7 +15,7 @@ namespace StrategyBuilder.Service
 
         public int GetValidUserId()
         {
-            return 2;
+            return 1;
             //return _dbContext.Set<Strategy>()
             //                 .Where(s => s.CreatedBy != null)
             //                 .Include(s => s.CreatedBy)

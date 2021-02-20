@@ -24,20 +24,19 @@ namespace StrategyBuilder.Api.Controllers
         }
 
         // GET: api/<StrategyController>
-        [HttpGet]
-        public IEnumerable<Strategy> GetAllStrategiesByUserId()
+        [HttpGet("{userid}")]
+        public IEnumerable<Strategy> GetAllStrategiesByUserId(int userid)
         {
-            int userId = _userService.GetValidUserId();
-            var eventList = _strategyService.GetAllStrategiesByUserId(userId);
+            var eventList = _strategyService.GetAllStrategiesByUserId(userid);
             return eventList;
         }
 
-        // GET api/<StrategyController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<StrategyController>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<StrategyController>
         [HttpPost]
@@ -48,8 +47,8 @@ namespace StrategyBuilder.Api.Controllers
         }
 
         // PUT api/<StrategyController>/5
-        [HttpPut("{strategyId}")]
-        public IActionResult UpdateEventGroupsInStrategy(int strategyId, [FromBody] IEnumerable<int> eventGroupIds)
+        [HttpPut("{strategyId}/eventgroups")]
+        public IActionResult UpdateEventGroupsInStrategy(int strategyId, [FromBody]IEnumerable<int> eventGroupIds)
         {
             _strategyService.UpdateEventGroupsInStrategy(strategyId, eventGroupIds);
             return Ok();

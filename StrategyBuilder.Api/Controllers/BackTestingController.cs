@@ -23,8 +23,8 @@ namespace StrategyBuilder.Api.Controllers
         [Route("Execute")]
         public async Task Execute(string from, string to, string symbol, string strategyId)
         {
-            DateTime fromDate = DateTime.Parse(from);
-            DateTime toDate = DateTime.Parse(to);
+            DateTime fromDate = DateTime.Parse(from).Date;
+            DateTime toDate = DateTime.Parse(to).Date;
             int id = int.Parse(strategyId);
             await _backTestingEngine.Execute(fromDate, toDate, symbol, id);
         }

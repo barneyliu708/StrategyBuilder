@@ -30,16 +30,17 @@ namespace StrategyBuilder.Model.Extensions
 
         public static DateTime GetNearestAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 5)
         {
-            if (dict.ContainsKey(current))
+            DateTime currentDate = current.Date;
+            if (dict.ContainsKey(currentDate))
             {
-                return current;
+                return currentDate;
             }
-            DateTime fw = current.AddDays(1);
-            DateTime bw = current.AddDays(-1);
+            DateTime fw = currentDate.AddDays(1);
+            DateTime bw = currentDate.AddDays(-1);
             while (!dict.ContainsKey(fw) && !dict.ContainsKey(bw) && maxlookup > 0)
             {
-                fw = current.AddDays(1);
-                bw = current.AddDays(-1);
+                fw = fw.AddDays(1);
+                bw = bw.AddDays(-1);
                 maxlookup--;
             }
             DateTime result = new DateTime();

@@ -18,43 +18,56 @@ namespace StrategyBuilder.Service
 
         public void AddNewStrategy(Strategy strategy)
         {
-            string query = $"  Insert Into [Strategies] ([Name], [Description], [CreatedById]) Values('{strategy.Name}', '{strategy.Description}', {strategy.CreatedBy.Id})";
-            _dbContext.Database.ExecuteSqlCommand(query);
+            var user = _dbContext.Set<User>().First(u => u.Id == strategy.CreatedBy.Id);
+            strategy.CreatedBy = user;
+            _dbContext.Set<Strategy>().Add(strategy);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Strategy> GetAllStrategiesByUserId(int userId)
         {
             return _dbContext.Set<Strategy>()
-                             .Where(s => s.CreatedBy.Id == userId)
-                             .Include(s => s.JoinStrategyEventGroups.Select(j => j.EventGroup))
+                             .Include(s => s.CreatedBy)
+                             .Include(s => s.JoinStrategyEventGroups).ThenInclude(j => j.EventGroup)
                              .Include(s => s.BackTestingResults)
+                             .Where(s => s.CreatedBy.Id == userId)
                              .OrderByDescending(s => s.Id);
         }
 
         public Strategy GetStrategiesByStrategyId(int strategyId)
         {
             return _dbContext.Set<Strategy>()
-                             .Where(s => s.Id == strategyId)
                              .Include(s => s.CreatedBy)
-                             .Include(s => s.JoinStrategyEventGroups.Select(j => j.EventGroup)).ThenInclude(s => s.Events)
+                             .Include(s => s.JoinStrategyEventGroups).ThenInclude(j => j.EventGroup).ThenInclude(eg => eg.Events)
                              .Include(s => s.BackTestingResults)
-                             .FirstOrDefault();
+                             .FirstOrDefault(s => s.Id == strategyId);
         }
 
         public void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<int> eventGroupIds)
         {
-            string queryold = $"Update [EventGroups] Set StrategyId = NULL Where StrategyId = {strategyId}";
-            string querynew = $"Update [EventGroups] Set StrategyId = {strategyId} Where [Id] in ({string.Join(",", eventGroupIds)})";
-            _dbContext.Database.ExecuteSqlCommand(queryold);
-            _dbContext.Database.ExecuteSqlCommand(querynew);
+            var strategy = _dbContext.Set<Strategy>()
+                                     .Include(s => s.JoinStrategyEventGroups)
+                                     .Single(s => s.Id == strategyId);
+
+            strategy.JoinStrategyEventGroups.Clear();
+
+            foreach (var egid in eventGroupIds)
+            {
+                var eventGroup = _dbContext.Set<EventGroup>().Single(e => e.Id == egid);
+                strategy.JoinStrategyEventGroups.Add(new JoinStrategyEventGroup { Strategy = strategy, EventGroup = eventGroup });
+            }
+
+            _dbContext.SaveChanges();
         }
 
         public int InsertIntoBackTestingResult(DateTime executeOn, DateTime startFrom, DateTime endTo, string reportUri, int executedBy, int strategyId)
         {
-            string query = $"INSERT INTO BackTestingResults (ExecutedOn, StartFrom, EndTo, ReportFileUri, ExecutedById, StrategyId) " +
-                           $"VALUES('{executeOn:yyyy-MM-dd HH:mm:ss.fff}', '{startFrom:yyyy-MM-dd HH:mm:ss.fff}', '{endTo:yyyy-MM-dd HH:mm:ss.fff}', '{reportUri}', {executedBy}, {strategyId}); ";
-            var result = _dbContext.Database.ExecuteSqlCommand(query);
-            return result;
+            var strategy = _dbContext.Set<Strategy>().First(s => s.Id == strategyId);
+            strategy.BackTestingResults.Add(new BackTestingResult() { ExecutedOn = executeOn, StartFrom = startFrom, EndTo = endTo, ReportFileUri = reportUri});
+            return _dbContext.SaveChanges();
+            //string query = $"INSERT INTO BackTestingResults (ExecutedOn, StartFrom, EndTo, ReportFileUri, ExecutedById, StrategyId) " +
+            //               $"VALUES('{executeOn:yyyy-MM-dd HH:mm:ss.fff}', '{startFrom:yyyy-MM-dd HH:mm:ss.fff}', '{endTo:yyyy-MM-dd HH:mm:ss.fff}', '{reportUri}', {executedBy}, {strategyId}); ";
+            //var result = _dbContext.Database.ExecuteSqlCommand(query);
         }
     }
 }
