@@ -10,5 +10,6 @@ namespace StrategyBuilder.Repository.Entities
         public EventGroup EventGroup { get; set; }
         public int StrategyId { get; set; }
         public Strategy Strategy { get; set; }
+        public string Action { get; set; }
     }
 }

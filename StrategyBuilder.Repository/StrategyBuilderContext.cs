@@ -6,7 +6,7 @@ namespace StrategyBuilder.Repository
 {
     public class StrategyBuilderContext : DbContext
     {
-        // public StrategyBuilderContext() { }
+        //public StrategyBuilderContext() { }
         public StrategyBuilderContext(DbContextOptions<StrategyBuilderContext> options) : base(options)
         {
         }

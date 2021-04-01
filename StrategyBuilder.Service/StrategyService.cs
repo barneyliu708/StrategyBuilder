@@ -31,7 +31,7 @@ namespace StrategyBuilder.Service
                              .Include(s => s.JoinStrategyEventGroups).ThenInclude(j => j.EventGroup)
                              .Include(s => s.BackTestingResults)
                              .Where(s => s.CreatedBy.Id == userId)
-                             .OrderByDescending(s => s.Id);
+                             .OrderBy(s => s.Id);
         }
 
         public Strategy GetStrategiesByStrategyId(int strategyId)
