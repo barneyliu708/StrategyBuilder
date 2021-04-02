@@ -26,6 +26,17 @@ namespace StrategyBuilder.Service
             _dbContext.SaveChanges();
         }
 
+        public void UpdateExpressions(int eventGroupId, IEnumerable<string> expressions)
+        {
+            var eventGroup = _dbContext.Set<EventGroup>().Include(eg => eg.Events).First(s => s.Id == eventGroupId);
+            eventGroup.Expressions.Clear();
+            foreach (var exp in expressions)
+            {
+                eventGroup.Expressions.Add(new Expression() { Content = exp });
+            }
+            _dbContext.SaveChanges();
+        }
+
         public void AddEventGroup(EventGroup eventGroup)
         {
             var user = _dbContext.Set<User>().First(u => u.Id == eventGroup.CreatedBy.Id);
@@ -38,6 +49,7 @@ namespace StrategyBuilder.Service
         {
             return _dbContext.Set<EventGroup>()
                 .Include(u => u.Events)
+                .Include(u => u.Expressions)
                 .Where(eg => eg.CreatedBy.Id == userId);
         }
 

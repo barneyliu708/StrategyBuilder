@@ -9,6 +9,7 @@ namespace StrategyBuilder.Repository.Entities
         {
             JoinStrategyEventGroups = new List<JoinStrategyEventGroup>();
             Events = new List<Event>();
+            Expressions = new List<Expression>();
         }
 
         [Key]
@@ -27,5 +28,7 @@ namespace StrategyBuilder.Repository.Entities
         public ICollection<JoinStrategyEventGroup> JoinStrategyEventGroups { get; set; }
 
         public ICollection<Event> Events { get; set; }
+
+        public ICollection<Expression> Expressions { get; set; }
     }
 }

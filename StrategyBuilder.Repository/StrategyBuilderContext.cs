@@ -10,6 +10,7 @@ namespace StrategyBuilder.Repository
         public StrategyBuilderContext(DbContextOptions<StrategyBuilderContext> options) : base(options)
         {
         }
+        public DbSet<Expression> Expressions { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventGroup> EventGroups { get; set; }
         public DbSet<Strategy> Strategies { get; set; }
