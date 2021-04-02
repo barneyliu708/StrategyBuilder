@@ -46,6 +46,7 @@ namespace StrategyBuilder.Api
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IStrategyService, StrategyService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IIndicatorService, IndicatorService>();
             services.AddTransient<IBackTestingEngine, BackTestingEngine>();
             services.AddTransient<IReportGenerator, ReportGenerator>();
 
