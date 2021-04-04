@@ -43,7 +43,7 @@ namespace StrategyBuilder.Service
                              .FirstOrDefault(s => s.Id == strategyId);
         }
 
-        public void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<int> eventGroupIds)
+        public void UpdateEventGroupsInStrategy(int strategyId, IEnumerable<JoinStrategyEventGroup> strategyEventgroups)
         {
             var strategy = _dbContext.Set<Strategy>()
                                      .Include(s => s.JoinStrategyEventGroups)
@@ -51,10 +51,15 @@ namespace StrategyBuilder.Service
 
             strategy.JoinStrategyEventGroups.Clear();
 
-            foreach (var egid in eventGroupIds)
+            foreach (var join in strategyEventgroups)
             {
-                var eventGroup = _dbContext.Set<EventGroup>().Single(e => e.Id == egid);
-                strategy.JoinStrategyEventGroups.Add(new JoinStrategyEventGroup { Strategy = strategy, EventGroup = eventGroup });
+                var eventGroup = _dbContext.Set<EventGroup>().Single(e => e.Id == join.EventGroupId);
+                strategy.JoinStrategyEventGroups.Add(new JoinStrategyEventGroup 
+                { 
+                    Action = join.Action,
+                    Strategy = strategy, 
+                    EventGroup = eventGroup
+                });
             }
 
             _dbContext.SaveChanges();

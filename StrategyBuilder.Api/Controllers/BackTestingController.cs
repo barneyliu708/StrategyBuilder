@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StrategyBuilder.Model;
 using StrategyBuilder.Service.Interfaces;
 
 namespace StrategyBuilder.Api.Controllers
@@ -19,14 +20,13 @@ namespace StrategyBuilder.Api.Controllers
             _backTestingEngine = backTestingEngine;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Execute")]
-        public async Task Execute(string from, string to, string symbol, string strategyId)
+        public async Task Execute([FromBody]BackTestingRequest request)
         {
-            DateTime fromDate = DateTime.Parse(from).Date;
-            DateTime toDate = DateTime.Parse(to).Date;
-            int id = int.Parse(strategyId);
-            await _backTestingEngine.Execute(fromDate, toDate, symbol, id);
+            DateTime fromDate = DateTime.Parse(request.from).Date;
+            DateTime toDate = DateTime.Parse(request.to).Date;
+            await _backTestingEngine.Execute(fromDate, toDate, request.SimbolList, request.StrategyId);
         }
 
         [HttpDelete]

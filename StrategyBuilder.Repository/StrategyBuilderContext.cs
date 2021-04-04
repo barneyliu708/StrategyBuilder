@@ -6,12 +6,11 @@ namespace StrategyBuilder.Repository
 {
     public class StrategyBuilderContext : DbContext
     {
-        // public StrategyBuilderContext() { }
+        //public StrategyBuilderContext() { }
         public StrategyBuilderContext(DbContextOptions<StrategyBuilderContext> options) : base(options)
         {
         }
         public DbSet<Indicator> Indicators { get; set; }
-        public DbSet<Expression> Expressions { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventGroup> EventGroups { get; set; }
         public DbSet<Strategy> Strategies { get; set; }

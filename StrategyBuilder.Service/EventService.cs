@@ -26,14 +26,12 @@ namespace StrategyBuilder.Service
             _dbContext.SaveChanges();
         }
 
-        public void UpdateExpressions(int eventGroupId, IEnumerable<string> expressions)
+        public void UpdateEventGroup(int eventGroupid, EventGroup eventGroup)
         {
-            var eventGroup = _dbContext.Set<EventGroup>().Include(eg => eg.Events).First(s => s.Id == eventGroupId);
-            eventGroup.Expressions.Clear();
-            foreach (var exp in expressions)
-            {
-                eventGroup.Expressions.Add(new Expression() { Content = exp });
-            }
+            var eg = _dbContext.Set<EventGroup>().First(s => s.Id == eventGroupid);
+            eg.Name = eventGroup.Name;
+            eg.Description = eventGroup.Description;
+            eg.Expression = eventGroup.Expression;
             _dbContext.SaveChanges();
         }
 
@@ -47,10 +45,14 @@ namespace StrategyBuilder.Service
 
         public IEnumerable<EventGroup> GetAllEventGroupsByUserId(int userId)
         {
-            return _dbContext.Set<EventGroup>()
+            var groups = _dbContext.Set<EventGroup>()
                 .Include(u => u.Events)
-                .Include(u => u.Expressions)
-                .Where(eg => eg.CreatedBy.Id == userId);
+                .Include(u => u.CreatedBy)
+                .Where(eg => eg.CreatedBy.Id == userId)
+                .ToList();
+            groups.ForEach(eg => eg.CreatedBy.EventGroups = null);
+
+            return groups;
         }
 
         public EventGroup GetEventGroupDetailsById(int eventGroupId)

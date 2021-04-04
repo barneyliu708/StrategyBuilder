@@ -48,8 +48,10 @@ namespace StrategyBuilder.Api.Controllers
 
         // PUT api/<EventGroupController>/5
         [HttpPut("{eventgoupid}")]
-        public void Put([FromBody] EventGroup eventGroup)
+        public IActionResult Put(int eventgoupid, [FromBody] EventGroup eventGroup)
         {
+            _eventService.UpdateEventGroup(eventgoupid, eventGroup);
+            return Ok();
         }
 
         // PUT api/<EventGroupController>/5

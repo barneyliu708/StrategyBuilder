@@ -7,7 +7,7 @@ namespace StrategyBuilder.Service.Interfaces
 {
     public interface IBackTestingEngine
     {
-        Task Execute(DateTime from, DateTime to, string symbol, int strategyIds, int eventdatefrom = -5, int eventdateto = 5);
+        Task Execute(DateTime from, DateTime to, string[] symbolList, int strategyIds);
         void DeleteBackTestingResult(int resultId);
     }
 }

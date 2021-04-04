@@ -40,12 +40,49 @@ namespace StrategyBuilder.Service
             }
         }
 
-        public async Task Execute(DateTime from, DateTime to, string symbol, int strategyId, int eventdatefrom = -5, int eventdateto = 5)
+        public async Task Execute(DateTime from, DateTime to, string[] symbolList, int strategyId)
         {
+            var symbol = symbolList[0];
             Dictionary<DateTime, StockPriceAdjustDaily> stockprices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
             Strategy strategy = _strategyService.GetStrategiesByStrategyId(strategyId);
-            // IEnumerable<Event> events = strategy.EventGroups.SelectMany(x => x.Events);
             IEnumerable<Event> events = strategy.JoinStrategyEventGroups.Select(j => j.EventGroup).SelectMany(x => x.Events).Distinct();
+
+            int eventdatefrom = -5;
+            int eventdateto = 5;
+            NegativeIndexArray<decimal> meanresults = await ExecuteEventPriceImpact(from, to, events, stockprices, eventdatefrom, eventdateto);
+
+            // generate report
+            string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
+                                                              strategy.Description,
+                                                              symbol,
+                                                              strategy.JoinStrategyEventGroups.Select(j => j.EventGroup.Name).ToArray(),
+                                                              eventdatefrom, 
+                                                              eventdateto,
+                                                              meanresults, 
+                                                              DateTime.Now, 
+                                                              from,
+                                                              to);
+            
+            // save report uri to database
+            try
+            {
+                _strategyService.InsertIntoBackTestingResult(DateTime.Now, from, to, reportUri, strategy.CreatedBy.Id, strategyId);
+            } 
+            catch (Exception ex)
+            {
+                //suppress
+            }
+            
+        }
+
+        private async Task<NegativeIndexArray<decimal>> ExecuteEventPriceImpact(
+            DateTime from, 
+            DateTime to,
+            IEnumerable<Event> events,
+            Dictionary<DateTime, StockPriceAdjustDaily> stockprices, 
+            int eventdatefrom, 
+            int eventdateto)
+        {
             List<NegativeIndexArray<decimal>> results = new List<NegativeIndexArray<decimal>>();
             foreach (Event e in events)
             {
@@ -83,7 +120,7 @@ namespace StrategyBuilder.Service
 
             // normalize the result
             List<NegativeIndexArray<decimal>> normalizedresults = new List<NegativeIndexArray<decimal>>();
-            foreach(var r in results)
+            foreach (var r in results)
             {
                 var nr = new NegativeIndexArray<decimal>(Math.Max(-1 * eventdatefrom, eventdateto));
                 for (int i = eventdatefrom; i <= eventdateto; i++)
@@ -94,34 +131,13 @@ namespace StrategyBuilder.Service
             }
 
             // calculate the mean result
-            NegativeIndexArray<decimal> mean = new NegativeIndexArray<decimal>(Math.Max(-1 * eventdatefrom, eventdateto));
+            NegativeIndexArray<decimal> meanresults = new NegativeIndexArray<decimal>(Math.Max(-1 * eventdatefrom, eventdateto));
             for (int i = eventdatefrom; i <= eventdateto; i++)
             {
-                mean[i] = normalizedresults.Sum(x => x[i]) / normalizedresults.Count;
+                meanresults[i] = normalizedresults.Sum(x => x[i]) / normalizedresults.Count;
             }
 
-            // generate report
-            string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
-                                                              strategy.Description, 
-                                                              symbol,
-                                                              strategy.JoinStrategyEventGroups.Select(j => j.EventGroup.Name).ToArray(),
-                                                              eventdatefrom, 
-                                                              eventdateto, 
-                                                              mean, 
-                                                              DateTime.Now, 
-                                                              from,
-                                                              to);
-            
-            // save report uri to database
-            try
-            {
-                _strategyService.InsertIntoBackTestingResult(DateTime.Now, from, to, reportUri, strategy.CreatedBy.Id, strategyId);
-            } 
-            catch (Exception ex)
-            {
-                //suppress
-            }
-            
+            return meanresults;
         }
     }
 }
