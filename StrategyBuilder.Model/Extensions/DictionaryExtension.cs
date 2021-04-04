@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace StrategyBuilder.Model.Extensions
 {
     public static class DictionaryExtension
     {
-        public static DateTime GetPreviousAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 5)
+        public static DateTime GetPreviousAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 10)
         {
-            DateTime result = current.AddDays(-1);
+            DateTime result = current.Date;
             while (!dict.ContainsKey(result) && maxlookup > 0)
             {
                 result = result.AddDays(-1);
                 maxlookup--;
             }
-            return maxlookup == 0 ? new DateTime() : result;
+            return maxlookup == 0 ? dict.Keys.Min() : result;
         }
 
-        public static DateTime GetNextAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 5)
+        public static DateTime GetNextAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 10)
         {
-            DateTime result = current.AddDays(1);
+            DateTime result = current.Date;
             while (!dict.ContainsKey(result) && maxlookup > 0)
             {
                 result = result.AddDays(1);
                 maxlookup--;
             }
-            return maxlookup == 0 ? new DateTime() : result;
+            return maxlookup == 0 ? dict.Keys.Max() : result;
         }
 
         public static DateTime GetNearestAvailableDate<T>(this Dictionary<DateTime, T> dict, DateTime current, int maxlookup = 5)

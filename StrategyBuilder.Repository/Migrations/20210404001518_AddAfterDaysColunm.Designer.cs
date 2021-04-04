@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StrategyBuilder.Repository;
 
 namespace StrategyBuilder.Repository.Migrations
 {
     [DbContext(typeof(StrategyBuilderContext))]
-    partial class StrategyBuilderContextModelSnapshot : ModelSnapshot
+    [Migration("20210404001518_AddAfterDaysColunm")]
+    partial class AddAfterDaysColunm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,9 +138,6 @@ namespace StrategyBuilder.Repository.Migrations
 
                     b.Property<int>("AfterDays")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Percentage")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("StrategyId", "EventGroupId");
 

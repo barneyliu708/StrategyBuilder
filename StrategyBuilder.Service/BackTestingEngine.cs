@@ -42,19 +42,94 @@ namespace StrategyBuilder.Service
 
         public async Task Execute(DateTime from, DateTime to, string[] symbolList, int strategyId)
         {
-            var symbol = symbolList[0];
-            Dictionary<DateTime, StockPriceAdjustDaily> stockprices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
+            // var symbol = symbolList[0];
             Strategy strategy = _strategyService.GetStrategiesByStrategyId(strategyId);
             IEnumerable<Event> events = strategy.JoinStrategyEventGroups.Select(j => j.EventGroup).SelectMany(x => x.Events).Distinct();
 
+            Dictionary<string, Dictionary<DateTime, StockPriceAdjustDaily>> stockprices = new Dictionary<string, Dictionary<DateTime, StockPriceAdjustDaily>>();
+            foreach (var symbol in symbolList)
+            {
+                Dictionary<DateTime, StockPriceAdjustDaily> prices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
+                stockprices.Add(symbol, prices);
+
+            }
+            // Dictionary<DateTime, StockPriceAdjustDaily> stockprices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
+            
+            
+
             int eventdatefrom = -5;
             int eventdateto = 5;
-            NegativeIndexArray<decimal> meanresults = await ExecuteEventPriceImpact(from, to, events, stockprices, eventdatefrom, eventdateto);
+            NegativeIndexArray<decimal> meanresults = await ExecuteEventPriceImpact(from, to, events, stockprices[symbolList[0]], eventdatefrom, eventdateto);
+
+            // Execute porfolio
+            decimal cash = 100000; // initial account balance 100,000
+            decimal accountValue = cash; 
+            List<TradeRecord> tradeRecords = new List<TradeRecord>();
+            Dictionary<string, int> portfolio = symbolList.ToDictionary(x => x, x => 0);
+            List<Account> accountPerformance = new List<Account>();
+
+            // get trade history
+            foreach(var join in strategy.JoinStrategyEventGroups)
+            {
+                foreach(var evt in join.EventGroup.Events)
+                {
+                    foreach(var sybl in symbolList)
+                    {
+                        decimal cashAvailable = accountValue * join.Percentage * 0.01m / symbolList.Length;
+                        var newTrade = new TradeRecord();
+                        newTrade.Date = stockprices[sybl].GetNextAvailableDate(evt.Occurrence.AddDays(join.AfterDays));
+                        newTrade.Symbol = sybl;
+                        newTrade.Action = join.Action == "buy" ? 1 : -1;
+                        newTrade.PurchasePrice = stockprices[sybl][stockprices[sybl].GetNextAvailableDate(newTrade.Date)].Closed;
+                        newTrade.Quantity = decimal.ToInt32(cashAvailable / newTrade.PurchasePrice);
+
+                        tradeRecords.Add(newTrade);
+                    }
+                }
+            }
+            tradeRecords = tradeRecords.OrderBy(x => x.Date).ToList();
+            Dictionary<DateTime, List<TradeRecord>> tradeHistory = new Dictionary<DateTime, List<TradeRecord>>();
+            foreach(var trade in tradeRecords)
+            {
+                if (!tradeHistory.ContainsKey(trade.Date))
+                {
+                    tradeHistory.Add(trade.Date, new List<TradeRecord>());
+                }
+                tradeHistory[trade.Date].Add(trade);
+            }
+
+            // get portfolio value trend
+            DateTime current = from;
+            while (current <= to)
+            {
+                var newPerformance = new Account();
+                if (tradeHistory.ContainsKey(current))
+                {
+                    List<TradeRecord> trades = tradeHistory[current];
+                    foreach(var trade in trades)
+                    {
+                        if (cash >= trade.Action * trade.PurchasePrice * trade.Quantity)
+                        {
+                            cash = cash - trade.Action * trade.PurchasePrice * trade.Quantity;
+                            portfolio[trade.Symbol] += trade.Action * trade.Quantity;
+                        }
+                    }
+                }
+                accountValue = cash + portfolio.Sum(x => x.Value * stockprices[x.Key][stockprices[x.Key].GetPreviousAvailableDate(current)].Closed);
+                newPerformance.Date = current;
+                newPerformance.Cash = cash;
+                newPerformance.AccountValue = accountValue;
+                // newPerformance.Benchmark;
+                accountPerformance.Add(newPerformance);
+
+                current = current.AddDays(1);
+            }
+
 
             // generate report
             string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description,
-                                                              symbol,
+                                                              symbolList[0],
                                                               strategy.JoinStrategyEventGroups.Select(j => j.EventGroup.Name).ToArray(),
                                                               eventdatefrom, 
                                                               eventdateto,
@@ -139,5 +214,16 @@ namespace StrategyBuilder.Service
 
             return meanresults;
         }
+
+
+    }
+
+    public class TradeRecord
+    {
+        public DateTime Date { get; set; }
+        public string Symbol { get; set; }
+        public int Action { get; set; }
+        public int Quantity { get; set; }
+        public decimal PurchasePrice { get; set; }
     }
 }

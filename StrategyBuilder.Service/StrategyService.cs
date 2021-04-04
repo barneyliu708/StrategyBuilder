@@ -57,6 +57,8 @@ namespace StrategyBuilder.Service
                 strategy.JoinStrategyEventGroups.Add(new JoinStrategyEventGroup 
                 { 
                     Action = join.Action,
+                    AfterDays = join.AfterDays,
+                    Percentage = join.Percentage,
                     Strategy = strategy, 
                     EventGroup = eventGroup
                 });
