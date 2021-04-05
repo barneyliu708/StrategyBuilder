@@ -129,7 +129,7 @@ namespace StrategyBuilder.Service
             // generate report
             string reportUri = _reportGenerator.GenerateReport(strategy.Name, 
                                                               strategy.Description,
-                                                              symbolList[0],
+                                                              symbolList,
                                                               strategy.JoinStrategyEventGroups.Select(j => j.EventGroup.Name).ToArray(),
                                                               eventdatefrom, 
                                                               eventdateto,

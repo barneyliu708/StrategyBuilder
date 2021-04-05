@@ -37,7 +37,7 @@ namespace StrategyBuilder.Service
         /// <returns></returns>
         public string GenerateReport(string strategyName, 
                                             string description, 
-                                            string symbol,
+                                            string[] symbolList,
                                             string[] eventNames,
                                             int eventdatefrom, 
                                             int eventdateto, 
@@ -59,13 +59,13 @@ namespace StrategyBuilder.Service
             }
 
             string outputfileroot = _config["ReportResultPhysicalLocation"];
-            string outputfilename = $"{strategyName}_{symbol}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{Guid.NewGuid()}.pdf";
+            string outputfilename = $"{strategyName}_{string.Join("+", symbolList)}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{Guid.NewGuid()}.pdf";
             object arg = new
             {
                 filename = Path.Combine(outputfileroot, outputfilename),
                 strategyname = strategyName,
                 strategydescription = description,
-                symbol = symbol,
+                symbolList = symbolList,
                 eventNames = eventNames,
                 executedon = executedOn.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 executefrom = executeFrom.ToString("yyyy-MM-dd HH:mm:ss.fff"),
@@ -115,7 +115,7 @@ namespace StrategyBuilder.Service
                 // delete/save temporary .txt file 
                 if (!saveInputFile)
                 {
-                    File.Delete(argsFile);
+                    //File.Delete(argsFile);
                 }
             }
             Console.WriteLine(outputString);

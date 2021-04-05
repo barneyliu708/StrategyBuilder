@@ -1,15 +1,26 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import sys
 import json
+import collections
+from types import SimpleNamespace
 
 # load input arguments from the text file
 filename = sys.argv[ 1 ]
-#filename = "C:/Users/barne/OneDrive/Documents/CPT/HU/Semester 5/GRAD 695/Project/e6b87950-e68c-49e7-96ea-aef0898ebf4c.txt"
-
-with open( filename ) as data_file:   
-    input_args = json.loads( data_file.read() )
+# filename = "C:/Users/barne/GitHubRepos/StrategyBuilder.BFF/Scripts/f0deafa1-7f66-46ec-b536-fdc93a4bff8c.txt"
+data = ''
+with open( filename ) as data_file: 
+    data = data_file.read()
+    input_args = json.loads( data )
 
 # read value from input args
-filename, strategyname, strategydescription, symbol, eventNames, executedon, executefrom, executeto, x, y = [ input_args.get( key ) for key in [ 'filename', 'strategyname', 'strategydescription', 'symbol', 'eventNames', 'executedon', 'executefrom', 'executeto', 'x', 'y' ] ]
+filename, strategyname, strategydescription, symbolList, eventNames, executedon, executefrom, executeto, x, y = [ input_args.get( key ) for key in [ 'filename', 'strategyname', 'strategydescription', 'symbolList', 'eventNames', 'executedon', 'executefrom',  'executeto',  'x',  'y' ] ]
+
+input_args = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
 
 chartdata = []
 for i in range(len(x)):
@@ -148,7 +159,7 @@ def main():
     elements.append(ptext)
     elements.append(Spacer(1,0.2*inch))
     
-    ptext = Paragraph('Backtesting Stock: ' + symbol, styles["Normal"])
+    ptext = Paragraph('Backtesting Stock: ' + ", ".join(symbolList), styles["Normal"])
     elements.append(ptext)
     ptext = Paragraph('Backtesting From: ' + executefrom, styles["Normal"])
     elements.append(ptext)
@@ -177,6 +188,21 @@ if __name__ == '__main__':
     main()
     
 print(json.dumps( { 'x' : x, 'y' : y } ))
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
 
 
 

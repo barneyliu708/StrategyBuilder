@@ -9,7 +9,7 @@ namespace StrategyBuilder.Service.Interfaces
     {
         public string GenerateReport(string strategyName,
                                             string description,
-                                            string symbol,
+                                            string[] symbolList,
                                             string[] eventNames,
                                             int eventdatefrom,
                                             int eventdateto,
