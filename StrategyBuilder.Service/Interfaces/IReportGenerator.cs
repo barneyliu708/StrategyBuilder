@@ -13,7 +13,8 @@ namespace StrategyBuilder.Service.Interfaces
                                             string[] eventNames,
                                             int eventdatefrom,
                                             int eventdateto,
-                                            NegativeIndexArray<decimal> meanResult,
+                                            Dictionary<string, NegativeIndexArray<decimal>> meanResult,
+                                            List<Account> accountPerformance,
                                             DateTime executedOn,
                                             DateTime executeFrom,
                                             DateTime executeTo);

@@ -13,14 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Repository"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{23624522-04BF-40BB-A641-882D049902AB}"
 	ProjectSection(SolutionItems) = preProject
+		Scripts\AccountPerformanceScript.py = Scripts\AccountPerformanceScript.py
 		Scripts\ReportGeneratorScript.py = Scripts\ReportGeneratorScript.py
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{C5FBB859-DC7D-40F8-8B29-9B57B3385CDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyBuilder.Service.Test", "UnitTests\StrategyBuilder.Service.Test\StrategyBuilder.Service.Test.csproj", "{4D38301A-E1F2-4256-B2D5-5843A1C015CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Service.Test", "UnitTests\StrategyBuilder.Service.Test\StrategyBuilder.Service.Test.csproj", "{4D38301A-E1F2-4256-B2D5-5843A1C015CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyBuilder.Api.Test", "UnitTests\StrategyBuilder.Api.Test\StrategyBuilder.Api.Test.csproj", "{8A101F67-90F0-4760-AEDF-FFE00C6A3ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyBuilder.Api.Test", "UnitTests\StrategyBuilder.Api.Test\StrategyBuilder.Api.Test.csproj", "{8A101F67-90F0-4760-AEDF-FFE00C6A3ABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

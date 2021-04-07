@@ -46,20 +46,21 @@ namespace StrategyBuilder.Service
             Strategy strategy = _strategyService.GetStrategiesByStrategyId(strategyId);
             IEnumerable<Event> events = strategy.JoinStrategyEventGroups.Select(j => j.EventGroup).SelectMany(x => x.Events).Distinct();
 
+            int eventdatefrom = -5;
+            int eventdateto = 5;
             Dictionary<string, Dictionary<DateTime, StockPriceAdjustDaily>> stockprices = new Dictionary<string, Dictionary<DateTime, StockPriceAdjustDaily>>();
+            Dictionary<string, NegativeIndexArray<decimal>> meanresults = new Dictionary<string, NegativeIndexArray<decimal>>();
             foreach (var symbol in symbolList)
             {
                 Dictionary<DateTime, StockPriceAdjustDaily> prices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
                 stockprices.Add(symbol, prices);
 
+                NegativeIndexArray<decimal> meanresult = await ExecuteEventPriceImpact(from, to, events, stockprices[symbol], eventdatefrom, eventdateto);
+                meanresults.Add(symbol, meanresult);
             }
-            // Dictionary<DateTime, StockPriceAdjustDaily> stockprices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, symbol);
-            
-            
 
-            int eventdatefrom = -5;
-            int eventdateto = 5;
-            NegativeIndexArray<decimal> meanresults = await ExecuteEventPriceImpact(from, to, events, stockprices[symbolList[0]], eventdatefrom, eventdateto);
+            Dictionary<DateTime, StockPriceAdjustDaily> sp500prices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, "IVV");
+            // stockprices.Add("IVV", sp500prices);
 
             // Execute porfolio
             decimal cash = 100000; // initial account balance 100,000
@@ -100,6 +101,8 @@ namespace StrategyBuilder.Service
 
             // get portfolio value trend
             DateTime current = from;
+            int benchmarkquant = decimal.ToInt32(cash / sp500prices[sp500prices.GetNextAvailableDate(current)].Closed);
+            decimal remaincash = cash - benchmarkquant * sp500prices[sp500prices.GetNextAvailableDate(current)].Closed;
             while (current <= to)
             {
                 var newPerformance = new Account();
@@ -119,7 +122,7 @@ namespace StrategyBuilder.Service
                 newPerformance.Date = current;
                 newPerformance.Cash = cash;
                 newPerformance.AccountValue = accountValue;
-                // newPerformance.Benchmark;
+                newPerformance.Benchmark = remaincash + benchmarkquant * sp500prices[sp500prices.GetPreviousAvailableDate(current)].Closed;
                 accountPerformance.Add(newPerformance);
 
                 current = current.AddDays(1);
@@ -134,6 +137,7 @@ namespace StrategyBuilder.Service
                                                               eventdatefrom, 
                                                               eventdateto,
                                                               meanresults, 
+                                                              accountPerformance,
                                                               DateTime.Now, 
                                                               from,
                                                               to);
@@ -171,7 +175,7 @@ namespace StrategyBuilder.Service
                     DateTime previous;
                     for (int i = -1; i >= eventdatefrom; i--)
                     {
-                        previous = stockprices.GetPreviousAvailableDate(current);
+                        previous = stockprices.GetPreviousAvailableDate(current.AddDays(-1));
                         curResult[i] = stockprices[previous].Closed;
 
                         current = previous;
@@ -182,7 +186,7 @@ namespace StrategyBuilder.Service
                     DateTime next;
                     for (int i = 1; i <= eventdateto; i++)
                     {
-                        next = stockprices.GetNextAvailableDate(current);
+                        next = stockprices.GetNextAvailableDate(current.AddDays(1));
                         curResult[i] = stockprices[next].Closed;
 
                         current = next;

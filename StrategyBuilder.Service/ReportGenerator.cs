@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace StrategyBuilder.Service
@@ -15,6 +16,7 @@ namespace StrategyBuilder.Service
     {
         private IConfiguration _config;
         private string _pyScriptPath;
+        private string _accountPerformancePyScriptPath;
 
         public ReportGenerator(IConfiguration config)
         {
@@ -40,28 +42,51 @@ namespace StrategyBuilder.Service
                                             string[] symbolList,
                                             string[] eventNames,
                                             int eventdatefrom, 
-                                            int eventdateto, 
-                                            NegativeIndexArray<decimal> meanResult, 
+                                            int eventdateto,
+                                            Dictionary<string, NegativeIndexArray<decimal>> meanResult,
+                                            List<Account> accountPerformance,
                                             DateTime executedOn,
                                             DateTime executeFrom,
                                             DateTime executeTo)
         {
             // full path to .py file
             _pyScriptPath = _config["ReportScriptLocation"];
+            _accountPerformancePyScriptPath = _config["AccountPerformanceScriptLocation"];
 
             // convert input arguments to JSON string
-            List<int> xAxis = new List<int>();
-            List<decimal> yAxis = new List<decimal>();
-            for (int i = eventdatefrom; i <= eventdateto; i++)
-            {
-                xAxis.Add(i);
-                yAxis.Add(meanResult[i]);
-            }
+            //List<int> xAxis = new List<int>();
+            //List<decimal> yAxis = new List<decimal>();
+            //for (int i = eventdatefrom; i <= eventdateto; i++)
+            //{
+            //    xAxis.Add(i);
+            //    yAxis.Add(meanResult[i]);
+            //}
 
+            var eventImpact = symbolList.Select(symb => 
+            {
+                List<int> xAxis = new List<int>();
+                List<decimal> yAxis = new List<decimal>();
+                NegativeIndexArray<decimal> m = meanResult[symb];
+                for (int i = eventdatefrom; i <= eventdateto; i++)
+                {
+                    xAxis.Add(i);
+                    yAxis.Add(m[i]);
+                }
+
+                return new
+                {
+                    symbol = symb,
+                    x = xAxis.ToArray(),
+                    y = yAxis.ToArray()
+                };
+            }).ToArray();
+            string guid = Guid.NewGuid().ToString();
             string outputfileroot = _config["ReportResultPhysicalLocation"];
-            string outputfilename = $"{strategyName}_{string.Join("+", symbolList)}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{Guid.NewGuid()}.pdf";
+            string outputfilename = $"{strategyName}_{string.Join("+", symbolList)}_{executeFrom:yyyy-MM-dd}_{executeTo:yyyy-MM-dd}_{guid}.pdf";
+            string imagefilename = $"{guid}.png";
             object arg = new
             {
+                imagefilename = Path.Combine(outputfileroot, imagefilename),
                 filename = Path.Combine(outputfileroot, outputfilename),
                 strategyname = strategyName,
                 strategydescription = description,
@@ -70,8 +95,8 @@ namespace StrategyBuilder.Service
                 executedon = executedOn.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 executefrom = executeFrom.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 executeto = executeTo.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                x = xAxis.ToArray(),
-                y = yAxis.ToArray()
+                eventimpact = eventImpact,
+                accountPerformance = accountPerformance
             };
             string jsonStr = JsonConvert.SerializeObject(arg);
             BsonDocument argsBson = BsonDocument.Parse(JsonConvert.SerializeObject(arg));
@@ -115,7 +140,7 @@ namespace StrategyBuilder.Service
                 // delete/save temporary .txt file 
                 if (!saveInputFile)
                 {
-                    //File.Delete(argsFile);
+                    // File.Delete(argsFile);
                 }
             }
             Console.WriteLine(outputString);

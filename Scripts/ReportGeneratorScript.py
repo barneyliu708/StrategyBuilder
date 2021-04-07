@@ -1,17 +1,28 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 import sys
 import json
 import collections
+from reportlab.platypus import Image
 from types import SimpleNamespace
+
+
+# import subprocess
+# import conda.cli.python_api as Conda
+# # implement conda as a subprocess:
+# subprocess.check_call([sys.executable, '-m', 'conda', 'install', 
+# 'matplotlib'])
+
+# import matplotlib.pyplot as plt
+# import pandas as pd
 
 # load input arguments from the text file
 filename = sys.argv[ 1 ]
-# filename = "C:/Users/barne/GitHubRepos/StrategyBuilder.BFF/Scripts/f0deafa1-7f66-46ec-b536-fdc93a4bff8c.txt"
+# filename = "C:/Users/barne/GitHubRepos/StrategyBuilder.BFF/Scripts/e0c4b1ed-f783-4fa6-8591-b5f094002a28.txt"
 data = ''
 with open( filename ) as data_file: 
     data = data_file.read()
@@ -22,10 +33,22 @@ filename, strategyname, strategydescription, symbolList, eventNames, executedon,
 
 input_args = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
 
-chartdata = []
-for i in range(len(x)):
-    chartdata.append((x[i], y[i]))
 
+# input_args.accountPerformance
+# loaddata = json.loads( data )
+# df = pd.json_normalize(loaddata['accountPerformance'])
+# #df.set_index('Date')
+# df.index = pd.to_datetime(df["Date"])
+# df = df.drop(columns=["Date"])
+# df.info()
+# for i, col in enumerate(df.columns):
+#     df[col].plot()
+
+# plt.title('Price Evolution Comparison')
+
+# plt.xticks(rotation=70)
+# plt.legend(df.columns)
+# plt.savefig(input_args.imagefilename, bbox_inches='tight')
 
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.validators import Auto
@@ -63,12 +86,15 @@ def pie_chart_with_legend():
     drawing.add(pie)
     add_legend(drawing, pie, data)
     return drawing
-def line_chart_with_legend():
+def line_chart_with_legend(eventimpact):
     fontName = 'Helvetica'
     fontSize = 7
+    chartdata = []
+    for i in range(len(eventimpact.x)):
+        chartdata.append((eventimpact.x[i], eventimpact.y[i]))
     data = [chartdata]
     drawing = Drawing(width=400, height=200)
-    my_title = String(50, 120, 'Event Impact on Stock Price Change', fontSize=11)
+    my_title = String(50, 120, 'Event Impact on Stock Price Change of ' + eventimpact.symbol, fontSize=11)
     chart = LinePlot()
     # chart
     chart.y                = 16
@@ -135,14 +161,19 @@ def line_chart_with_legend():
     drawing.add(chart)
     add_legend(drawing, chart, data)
     return drawing
+
 Title = "Hello world"
 pageinfo = "platypus example"
 def myFirstPage(canvas, doc):
+
     canvas.saveState()
     canvas.setFont('Times-Bold',16)
     canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, strategyname)
     canvas.setFont('Times-Roman',9)
     canvas.drawString(inch, 0.75 * inch, "First Page / %s" % pageinfo)
+#     Im = Image.open("C:/Users/barne/OneDrive/Documents/CPT/HU/Semester 5/GRAD 695/Project/ClassDiagram.jpg")
+#     ir = ImageReader(Im)
+#     canvas.drawImage(ir, 6, 5)
     canvas.restoreState()
 
 def main():
@@ -175,11 +206,19 @@ def main():
 
     elements.append(Spacer(1,0.2*inch))
     
-    chart = line_chart_with_legend()
-    elements.append(chart)
+    for i in range(len(input_args.eventimpact)):
+        chart = line_chart_with_legend(input_args.eventimpact[i])
+        elements.append(chart)
+    
+    # chart = line_chart_with_legend()
+    # elements.append(chart)
     
 #     ptext = Paragraph('Text after the chart', styles["Normal"])
 #     elements.append(ptext)
+
+#     im = Image(input_args.imagefilename)
+#     elements.append(im)
+     
     elements.append(Spacer(1,0.2*inch))
     
     doc.build(elements, onFirstPage=myFirstPage)
@@ -187,7 +226,7 @@ def main():
 if __name__ == '__main__':
     main()
     
-print(json.dumps( { 'x' : x, 'y' : y } ))
+print(input_args.imagefilename)
 
 
 # In[ ]:
