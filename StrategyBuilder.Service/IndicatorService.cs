@@ -19,5 +19,19 @@ namespace StrategyBuilder.Service
         {
             return _dbContext.Set<Indicator>().ToList();
         }
+
+        public IEnumerable<Event> GetEventsFromExpression(string expression)
+        {
+            expression = "{Symbol:GOOG};{Comparator:Less};{Indicator:SMA}";
+
+            
+            var indicatores = expression.Split(';');
+            for(int i = 0; i < indicatores.Length; i++)
+            {
+
+            }
+
+            return null;
+        }
     }
 }

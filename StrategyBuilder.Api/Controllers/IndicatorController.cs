@@ -25,5 +25,11 @@ namespace StrategyBuilder.Api.Controllers
         {
             return _indicatorService.GetAllIndicators();
         }
+
+        [HttpPost]
+        public IEnumerable<Event> GetEventsFromExpression([FromBody]string expression)
+        {
+            return null;
+        }
     }
 }

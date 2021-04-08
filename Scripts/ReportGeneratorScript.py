@@ -17,8 +17,8 @@ from types import SimpleNamespace
 # subprocess.check_call([sys.executable, '-m', 'conda', 'install', 
 # 'matplotlib'])
 
-# import matplotlib.pyplot as plt
-# import pandas as pd
+import matplotlib.pyplot as plt
+import pandas as pd
 
 # load input arguments from the text file
 filename = sys.argv[ 1 ]
@@ -35,20 +35,19 @@ input_args = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
 
 
 # input_args.accountPerformance
-# loaddata = json.loads( data )
-# df = pd.json_normalize(loaddata['accountPerformance'])
-# #df.set_index('Date')
-# df.index = pd.to_datetime(df["Date"])
-# df = df.drop(columns=["Date"])
-# df.info()
-# for i, col in enumerate(df.columns):
-#     df[col].plot()
+loaddata = json.loads( data )
+df = pd.json_normalize(loaddata['accountPerformance'])
+#df.set_index('Date')
+df.index = pd.to_datetime(df["Date"])
+df = df.drop(columns=["Date"])
+df.info()
+for i, col in enumerate(df.columns):
+    df[col].plot()
 
-# plt.title('Price Evolution Comparison')
-
-# plt.xticks(rotation=70)
-# plt.legend(df.columns)
-# plt.savefig(input_args.imagefilename, bbox_inches='tight')
+plt.title('Protfolio Performance')
+plt.xticks(rotation=70)
+plt.legend(df.columns)
+plt.savefig(input_args.imagefilename, bbox_inches='tight')
 
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.validators import Auto
@@ -216,8 +215,8 @@ def main():
 #     ptext = Paragraph('Text after the chart', styles["Normal"])
 #     elements.append(ptext)
 
-#     im = Image(input_args.imagefilename)
-#     elements.append(im)
+    im = Image(input_args.imagefilename)
+    elements.append(im)
      
     elements.append(Spacer(1,0.2*inch))
     

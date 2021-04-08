@@ -8,5 +8,7 @@ namespace StrategyBuilder.Service.Interfaces
     public interface IIndicatorService
     {
         IEnumerable<Indicator> GetAllIndicators();
+
+        IEnumerable<Event> GetEventsFromExpression(string expression);
     }
 }
