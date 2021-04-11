@@ -4,6 +4,7 @@ using StrategyBuilder.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -27,8 +28,6 @@ namespace StrategyBuilder.Service
 
         public async Task<IEnumerable<Event>> GetEventsFromExpression(DateTime from, DateTime to, string expression)
         {
-            expression = "{Symbol:GOOG};{Comparator:Less};{Indicator:SMA}";
-
             Dictionary<DateTime, decimal> dataDict = new Dictionary<DateTime, decimal>();
             DateTime curDate = from;
             while (curDate <= to)
@@ -38,8 +37,7 @@ namespace StrategyBuilder.Service
             }
 
             DateTime[] dateRange = dataDict.Keys.ToArray();
-
-            string pattern = @"{([a-zA-Z]*):([a-zA-Z]*)}";
+            string pattern = @"{([a-zA-Z]*):([a-zA-Z0-9.]*)}";
 
             string symbol = string.Empty;
             string comparator = string.Empty;
@@ -71,6 +69,7 @@ namespace StrategyBuilder.Service
                 if (indicator.Type == "Symbol")
                 {
                     var pricesDict = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, indicator.Value);
+                    dateRange = dataDict.Keys.ToArray();
                     foreach (var date in dateRange)
                     {
                         if (!pricesDict.ContainsKey(date))
@@ -103,6 +102,7 @@ namespace StrategyBuilder.Service
                 else if (indicator.Type == "Indicator" && !string.IsNullOrWhiteSpace(symbol))
                 {
                     var idxDict = await _stockDataRepo.GetStockTechIndicator(from, to, symbol, indicator.Value);
+                    dateRange = dataDict.Keys.ToArray();
                     foreach (var date in dateRange)
                     {
                         if (!idxDict.ContainsKey(date))
@@ -129,6 +129,31 @@ namespace StrategyBuilder.Service
                                     dataDict[date] = idxDict[date].Closed;
                                     break;
                             }
+                        }
+                    }
+                }
+                else if (indicator.Type == "Number")
+                {
+                    dateRange = dataDict.Keys.ToArray();
+                    foreach (var date in dateRange)
+                    {
+                        switch (curOperator)
+                        {
+                            case "Multiplication":
+                                dataDict[date] *= decimal.Parse(indicator.Value);
+                                break;
+                            case "Division":
+                                dataDict[date] /= decimal.Parse(indicator.Value);
+                                break;
+                            case "Plus":
+                                dataDict[date] += decimal.Parse(indicator.Value);
+                                break;
+                            case "Minus":
+                                dataDict[date] -= decimal.Parse(indicator.Value);
+                                break;
+                            default:
+                                dataDict[date] = decimal.Parse(indicator.Value);
+                                break;
                         }
                     }
                 }
