@@ -15,12 +15,10 @@ namespace StrategyBuilder.Api.Controllers
     public class StrategyController : ControllerBase
     {
         private IStrategyService _strategyService;
-        private IUserService _userService;
 
-        public StrategyController(IStrategyService strategyService, IUserService userService)
+        public StrategyController(IStrategyService strategyService)
         {
             _strategyService = strategyService;
-            _userService = userService;
         }
 
         // GET: api/<StrategyController>
@@ -30,13 +28,6 @@ namespace StrategyBuilder.Api.Controllers
             var eventList = _strategyService.GetAllStrategiesByUserId(userid);
             return eventList;
         }
-
-        //// GET api/<StrategyController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
 
         // POST api/<StrategyController>
         [HttpPost]
@@ -52,12 +43,6 @@ namespace StrategyBuilder.Api.Controllers
         {
             _strategyService.UpdateEventGroupsInStrategy(strategyId, strategyEventGroups);
             return Ok();
-        }
-
-        // DELETE api/<StrategyController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

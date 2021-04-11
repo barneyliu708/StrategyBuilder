@@ -53,15 +53,6 @@ namespace StrategyBuilder.Service
             _pyScriptPath = _config["ReportScriptLocation"];
             _accountPerformancePyScriptPath = _config["AccountPerformanceScriptLocation"];
 
-            // convert input arguments to JSON string
-            //List<int> xAxis = new List<int>();
-            //List<decimal> yAxis = new List<decimal>();
-            //for (int i = eventdatefrom; i <= eventdateto; i++)
-            //{
-            //    xAxis.Add(i);
-            //    yAxis.Add(meanResult[i]);
-            //}
-
             var eventImpact = symbolList.Select(symb => 
             {
                 List<int> xAxis = new List<int>();

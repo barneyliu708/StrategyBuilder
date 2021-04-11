@@ -15,12 +15,10 @@ namespace StrategyBuilder.Api.Controllers
     public class EventGroupController : ControllerBase
     {
         private IEventService _eventService;
-        private IUserService _userService;
 
-        public EventGroupController(IEventService eventService, IUserService userService)
+        public EventGroupController(IEventService eventService)
         {
             _eventService = eventService;
-            _userService = userService;
         }
 
         // GET: api/<EventGroupController>
@@ -31,12 +29,6 @@ namespace StrategyBuilder.Api.Controllers
             return eventList;
         }
 
-        //// GET api/<EventGroupController>/5
-        //[HttpGet("{eventgoupid}")]
-        //public string GetEventGroupDetails(int eventgoupid)
-        //{
-        //    return "value";
-        //}
 
         // POST api/<EventGroupController>
         [HttpPost]
@@ -60,12 +52,6 @@ namespace StrategyBuilder.Api.Controllers
         {
             _eventService.UpdateEvents(eventgoupid, eventList);
             return Ok();
-        }
-
-        // DELETE api/<EventGroupController>/5
-        [HttpDelete("{eventgoupid}")]
-        public void Delete(int eventgoupid)
-        {
         }
     }
 }

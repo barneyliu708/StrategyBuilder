@@ -22,11 +22,12 @@ namespace StrategyBuilder.Api.Controllers
 
         [HttpPost]
         [Route("Execute")]
-        public async Task Execute([FromBody]BackTestingRequest request)
+        public async Task<IActionResult> Execute([FromBody]BackTestingRequest request)
         {
             DateTime fromDate = DateTime.Parse(request.from).Date;
             DateTime toDate = DateTime.Parse(request.to).Date;
             await _backTestingEngine.Execute(fromDate, toDate, request.SimbolList, request.StrategyId);
+            return Ok();
         }
 
         [HttpDelete]
