@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace StrategyBuilder.Service.Interfaces
 {
     public interface IIndicatorService
     {
         IEnumerable<Indicator> GetAllIndicators();
-
-        IEnumerable<Event> GetEventsFromExpression(string expression);
+        Task<IEnumerable<Event>> GetEventsFromExpression(DateTime from, DateTime to, string expression);
     }
 }

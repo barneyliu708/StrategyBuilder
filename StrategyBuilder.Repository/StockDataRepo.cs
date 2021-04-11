@@ -51,5 +51,35 @@ namespace StrategyBuilder.Repository
 
             return result;
         }
+
+        public async Task<Dictionary<DateTime, StockPriceAdjustDaily>> GetStockTechIndicator(DateTime from, DateTime to, string symbol, string function)
+        {
+            string uri = _baseurl + $"/query?function={function}&symbol={symbol}&interval=daily&time_period=30&series_type=close&apikey={_apikey}";
+            HttpResponseMessage response = await _httpclient.GetAsync(uri);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Dictionary<string, dynamic> bodyobject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(responseBody);
+            string timeSeriesStr = JsonConvert.SerializeObject(bodyobject[$"Technical Analysis: {function}"]);
+            Dictionary<string, Dictionary<string, string>> dailyprices = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(timeSeriesStr);
+            var convertedprices =
+                dailyprices.Select(
+                    x => new KeyValuePair<DateTime, StockPriceAdjustDaily>(
+                        DateTime.Parse(x.Key),
+                        new StockPriceAdjustDaily
+                        {
+                            Closed = decimal.Parse(x.Value[function])
+                        }));
+
+            Dictionary<DateTime, StockPriceAdjustDaily> result = new Dictionary<DateTime, StockPriceAdjustDaily>();
+            foreach (var kv in convertedprices)
+            {
+                if (kv.Key >= from && kv.Key <= to)
+                {
+                    result[kv.Key] = kv.Value;
+                }
+            }
+
+            return result;
+        }
     }
 }

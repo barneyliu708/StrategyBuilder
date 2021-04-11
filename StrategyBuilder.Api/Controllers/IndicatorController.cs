@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StrategyBuilder.Model;
 using StrategyBuilder.Repository.Entities;
 using StrategyBuilder.Service.Interfaces;
 
@@ -27,9 +28,12 @@ namespace StrategyBuilder.Api.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<Event> GetEventsFromExpression([FromBody]string expression)
+        [Route("ExecuteExpression")]
+        public async Task<IEnumerable<Event>> GetEventsFromExpression([FromBody]ExpressionRequest request)
         {
-            return null;
+            DateTime fromDate = DateTime.Parse(request.from).Date;
+            DateTime toDate = DateTime.Parse(request.to).Date;
+            return await _indicatorService.GetEventsFromExpression(fromDate, toDate, request.Expression);
         }
     }
 }

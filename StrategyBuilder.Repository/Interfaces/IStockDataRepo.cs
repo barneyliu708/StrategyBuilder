@@ -10,5 +10,6 @@ namespace StrategyBuilder.Repository.Interfaces
     public interface IStockDataRepo
     {
         Task<Dictionary<DateTime, StockPriceAdjustDaily>> GetStockPriceAdjustDaily(DateTime from, DateTime to, string symbol);
+        Task<Dictionary<DateTime, StockPriceAdjustDaily>> GetStockTechIndicator(DateTime from, DateTime to, string symbol, string function);
     }
 }
