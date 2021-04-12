@@ -72,9 +72,6 @@ namespace StrategyBuilder.Service
             var strategy = _dbContext.Set<Strategy>().First(s => s.Id == strategyId);
             strategy.BackTestingResults.Add(new BackTestingResult() { ExecutedOn = executeOn, StartFrom = startFrom, EndTo = endTo, ReportFileUri = reportUri});
             return _dbContext.SaveChanges();
-            //string query = $"INSERT INTO BackTestingResults (ExecutedOn, StartFrom, EndTo, ReportFileUri, ExecutedById, StrategyId) " +
-            //               $"VALUES('{executeOn:yyyy-MM-dd HH:mm:ss.fff}', '{startFrom:yyyy-MM-dd HH:mm:ss.fff}', '{endTo:yyyy-MM-dd HH:mm:ss.fff}', '{reportUri}', {executedBy}, {strategyId}); ";
-            //var result = _dbContext.Database.ExecuteSqlCommand(query);
         }
     }
 }

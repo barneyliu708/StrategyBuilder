@@ -54,15 +54,5 @@ namespace StrategyBuilder.Service
 
             return groups;
         }
-
-        public EventGroup GetEventGroupDetailsById(int eventGroupId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveEvents(int eventGroupid, IEnumerable<int> eventIds)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

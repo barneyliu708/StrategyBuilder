@@ -42,7 +42,6 @@ namespace StrategyBuilder.Service
 
         public async Task Execute(DateTime from, DateTime to, string[] symbolList, int strategyId)
         {
-            // var symbol = symbolList[0];
             Strategy strategy = _strategyService.GetStrategiesByStrategyId(strategyId);
             IEnumerable<Event> events = strategy.JoinStrategyEventGroups.Select(j => j.EventGroup).SelectMany(x => x.Events).Distinct();
 
@@ -60,7 +59,6 @@ namespace StrategyBuilder.Service
             }
 
             Dictionary<DateTime, StockPriceAdjustDaily> sp500prices = await _stockDataRepo.GetStockPriceAdjustDaily(from, to, "IVV");
-            // stockprices.Add("IVV", sp500prices);
 
             // Execute porfolio
             decimal cash = 100000; // initial account balance 100,000

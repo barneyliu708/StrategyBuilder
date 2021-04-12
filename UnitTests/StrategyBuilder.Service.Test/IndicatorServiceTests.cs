@@ -22,22 +22,13 @@ namespace StrategyBuilder.Service.Test
         [SetUp]
         public void Init()
         {
-            //var options = new DbContextOptionsBuilder<StrategyBuilderContext>()
-            //    .UseInMemoryDatabase(databaseName: "StrategyBuilderUnitTest")
-            //    .Options;
-            //using (var context = new StrategyBuilderContext(options))
-            //{
-            //    context.Indicators.Add(new Indicator() );
-            //    context.SaveChanges();
-            //}
-            // dbcontext = new StrategyBuilderContext(options);
             dbcontext = new Mock<DbContext>();
             dbcontext.Setup(p => p.SaveChanges()).Returns(1);
             stockDataRepo = new Mock<IStockDataRepo>();
             indicatorService = new IndicatorService(dbcontext.Object, stockDataRepo.Object);
         }
 
-        [Test, Description("Test the expression that Google stock price become less than 30-days moving average price in 2020")]
+        [Test, Description("Test GetEventsFromExpression: Get events successfully from the expression that Google stock price become less than 30-days moving average price in 2020")]
         public async Task TestGetEventsFromExpression_WhenGOOGIsLessThanMovingAverage()
         {
             // arrange
@@ -66,7 +57,7 @@ namespace StrategyBuilder.Service.Test
             Assert.AreEqual(DateTime.Parse("2020-03-03"), result.ToArray()[0].Occurrence, "On 2020-03-03, Google stock price become less that moving average price");
         }
 
-        [Test, Description("Test the expression that Apple stock price with 0.9 multiplier become less than 30-days moving average price in 2020")]
+        [Test, Description("Test GetEventsFromExpression: Get events successfully from the expression that Apple stock price with 0.9 multiplier become less than 30-days moving average price in 2020")]
         public async Task TestGetEventsFromExpression_WhenAAPLWithMultiplierIsLessThanMovingAverage()
         {
             // arrange
@@ -95,7 +86,7 @@ namespace StrategyBuilder.Service.Test
             Assert.AreEqual(DateTime.Parse("2020-03-02"), result.ToArray()[0].Occurrence, "On 2020-03-02, Google stock price become less that moving average price");
         }
 
-        [Test, Description("Test the expression when the date range is invalid")]
+        [Test, Description("Test GetEventsFromExpression: Get empty events from the expression when the date range is invalid")]
         public async Task TestGetEventsFromExpression_WhenDateRangeIsInvalid()
         {
             // arrange
@@ -123,7 +114,7 @@ namespace StrategyBuilder.Service.Test
             Assert.AreEqual(0, result.Count(), "Empty data should be return when the date range is invalid");
         }
 
-        [Test, Description("Test GetAllIndicators - Get all Indicator successfully")]
+        [Test, Description("Test GetAllIndicators: Get all Indicator successfully")]
         public void TestGetAllIndicators_GetDataSuccessfully()
         {
             // arrange
@@ -141,7 +132,7 @@ namespace StrategyBuilder.Service.Test
             Assert.AreEqual(2, result.Count(), "All the 2 indicators in the database should be returned");
         }
 
-        [Test, Description("Test GetAllIndicators - Failed to connect database and an exception is thrown")]
+        [Test, Description("Test GetAllIndicators: Failed to connect database and an exception is thrown")]
         public void TestGetAllIndicators_FailedToConnectDatabase()
         {
             // arrange
