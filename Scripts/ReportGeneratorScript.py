@@ -1,21 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
-
 import sys
 import json
 import collections
 from reportlab.platypus import Image
 from types import SimpleNamespace
-
-
-# import subprocess
-# import conda.cli.python_api as Conda
-# # implement conda as a subprocess:
-# subprocess.check_call([sys.executable, '-m', 'conda', 'install', 
-# 'matplotlib'])
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -105,26 +95,19 @@ def line_chart_with_legend(eventimpact):
     chart.lines.symbol= makeMarker('FilledSquare')
     
     # x axis
-#     chart.xValueAxis = NormalDateXValueAxis()
     chart.xValueAxis.labels.fontName          = fontName
     chart.xValueAxis.labels.fontSize          = fontSize-1
-#     chart.xValueAxis.forceEndDate             = 1
-#     chart.xValueAxis.forceFirstDate           = 1
     chart.xValueAxis.labels.boxAnchor      ='autox'
-#     chart.xValueAxis.xLabelFormat          = '{d}-{MMM}'
     chart.xValueAxis.maximumTicks          = 5
     chart.xValueAxis.minimumTickSpacing    = 0.5
-#     chart.xValueAxis.niceMonth             = 0
     chart.xValueAxis.strokeWidth           = 1
     chart.xValueAxis.loLLen                = 5
     chart.xValueAxis.hiLLen                = 5
     chart.xValueAxis.gridEnd               = 258
     chart.xValueAxis.gridStart             = chart.x-10
     chart.xValueAxis.labelTextFormat       = '%d day'
-    #chart.xValueAxis.setPosition(50, 50, 125)
     
     # y axis
-          #self.chart.yValueAxis = AdjYValueAxis()
     chart.yValueAxis.visibleGrid           = 1
     chart.yValueAxis.visibleAxis=0
     chart.yValueAxis.labels.fontName       = fontName
@@ -133,7 +116,6 @@ def line_chart_with_legend(eventimpact):
     chart.yValueAxis.strokeWidth           = 0.25
     chart.yValueAxis.visible               = 1
     chart.yValueAxis.labels.rightPadding   = 5
-        #self.chart.yValueAxis.maximumTicks          = 6
     chart.yValueAxis.rangeRound            ='both'
     chart.yValueAxis.tickLeft              = 7.5
     chart.yValueAxis.minimumTickSpacing    = 0.5
@@ -145,7 +127,6 @@ def line_chart_with_legend(eventimpact):
     chart.lines[0].strokeColor = PCMYKColor(0,100,100,40,alpha=100)
     chart.lines[1].strokeColor = PCMYKColor(100,0,90,50,alpha=100)
     chart.xValueAxis.strokeColor             = PCMYKColor(100,60,0,50,alpha=100)
-#     self.legend.colorNamePairs = [(PCMYKColor(0,100,100,40,alpha=100), 'Bovis Homes'), (PCMYKColor(100,0,90,50,alpha=100), 'HSBC Holdings')]
     chart.lines.symbol.x           = 0
     chart.lines.symbol.strokeWidth = 0
     chart.lines.symbol.arrowBarbDx = 5
@@ -170,9 +151,6 @@ def myFirstPage(canvas, doc):
     canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, strategyname)
     canvas.setFont('Times-Roman',9)
     canvas.drawString(inch, 0.75 * inch, "First Page / %s" % pageinfo)
-#     Im = Image.open("C:/Users/barne/OneDrive/Documents/CPT/HU/Semester 5/GRAD 695/Project/ClassDiagram.jpg")
-#     ir = ImageReader(Im)
-#     canvas.drawImage(ir, 6, 5)
     canvas.restoreState()
 
 def main():
@@ -208,12 +186,6 @@ def main():
     for i in range(len(input_args.eventimpact)):
         chart = line_chart_with_legend(input_args.eventimpact[i])
         elements.append(chart)
-    
-    # chart = line_chart_with_legend()
-    # elements.append(chart)
-    
-#     ptext = Paragraph('Text after the chart', styles["Normal"])
-#     elements.append(ptext)
 
     im = Image(input_args.imagefilename)
     elements.append(im)
@@ -226,21 +198,6 @@ if __name__ == '__main__':
     main()
     
 print(input_args.imagefilename)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

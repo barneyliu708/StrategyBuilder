@@ -1,0 +1,820 @@
+Folder PATH listing for volume Windows
+Volume serial number is 000000DB 00C1:AED2
+C:\USERS\BARNE\GITHUBREPOS\STRATEGYBUILDER.BFF
+|   .gitattributes
+|   .gitignore
+|   doc.txt
+|   output.doc
+|   README.md
+|   StrategyBuilder.sln
+|   StrategyBuilder.sln.DotSettings.user
+|   ~$output.doc
+|   
++---Reports
+|       0313f16d-15ad-4c12-a741-35558b1baad2.png
+|       041ed948-1a28-4a2e-92a3-8a08b04153ce.png
+|       0b6f2269-e1e5-4109-b546-c14267815193.png
+|       0bfed391-72ba-49d6-bef4-07580e3d40fc.png
+|       15258eb3-0942-4449-9471-00b05653e1b9.png
+|       17bc1471-8c52-4ec4-ab54-14185f29832a.png
+|       20bb617d-0723-450f-999b-2b00a58d634f.png
+|       34819a2d-2d7f-4561-b2e1-94893641cd68.png
+|       535895ae-3fcb-45c8-9648-198a5bfd6cd9.png
+|       543163b1-7162-4eb8-b620-1910a9a71f09.png
+|       5cf90134-0b47-46f8-b5b3-58073d496d30.png
+|       5f382284-1bab-4470-9c5f-e46131c5cb26.png
+|       6fafa4c0-6304-4689-901b-605d6d17a7e5.png
+|       7513106a-eaa3-425b-85b6-ee60eb497c29.png
+|       80eff6de-c6d3-429d-9aa7-e40e044d9618.png
+|       88562ddd-25a5-4757-b525-6c9584b0af66.png
+|       9785adca-bdf9-4574-aa7b-5430d64ec27f.png
+|       b1f343b5-a691-4b1e-85f8-2aed930bb57d.png
+|       d75a9996-5275-4f98-8ac8-a5a0630eb4cd.png
+|       dd3221ed-a611-4ed4-b235-4df5d0142309.png
+|       Dividend Announcement Event Trading Strategy_AAPL_2017-01-01_2019-12-31_6fafa4c0-6304-4689-901b-605d6d17a7e5.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2017-01-01_2019-12-31_b1f343b5-a691-4b1e-85f8-2aed930bb57d.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2017-01-01_2020-11-28_06ae6a61-3cb6-4e7b-8f4b-dd17fcb7f345.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2018-01-01_2021-04-10_535895ae-3fcb-45c8-9648-198a5bfd6cd9.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2018-01-01_2021-04-10_e6de5ffe-3e65-4924-8ec3-c9ae9211e3ec.pdf
+|       Dividend Announcement Event Trading Strategy_AAPL_2019-01-01_2020-11-28_a289aece-5b5d-45b3-a58a-d64c3d86bdbb.pdf
+|       e6de5ffe-3e65-4924-8ec3-c9ae9211e3ec.png
+|       Earnings Events Driven Trading Strategy_AAPL+GOOG_2019-01-01_2021-04-11_17bc1471-8c52-4ec4-ab54-14185f29832a.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2018-01-01_2020-11-28_2f45ca79-6eff-4389-840c-98d997a492ce.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2019-01-01_2020-11-28_00e4b2c5-811b-4aac-ab95-918ab6baa6c1.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2020-04-05_2021-04-05_80eff6de-c6d3-429d-9aa7-e40e044d9618.pdf
+|       Earnings Events Driven Trading Strategy_AAPL_2020-04-11_2021-04-11_9785adca-bdf9-4574-aa7b-5430d64ec27f.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-04_2021-04-04_42501a8e-1db1-4644-bd7f-c790666cbc39.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_2c2183fc-72c3-4fbf-999f-f4c427c15440.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_5df14e67-9576-42bb-a60d-4ac0e8b29633.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_8ec5acfa-23e1-4313-98b2-9179ae02225b.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_d0fd908a-0963-43bc-ba40-58f05eb12def.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_ee6ac1ff-5004-44c4-bb48-28f9b79f5422.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_fba8ef8f-0f17-4475-a081-c98bcbe94545.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-05_fc54ced1-5643-4bde-b577-564950655ab1.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-07_041ed948-1a28-4a2e-92a3-8a08b04153ce.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-05_2021-04-07_5f382284-1bab-4470-9c5f-e46131c5cb26.pdf
+|       Earnings Events Driven Trading Strategy_IBM+AAPL_2020-04-06_2021-04-06_9c0e599a-0231-4c16-8f56-1bcdb0384b80.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2016-04-03_2021-04-03_315be634-b8ad-4608-8332-7fffdccd6ee0.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2016-04-03_2021-04-03_bd885411-b9e6-4123-994c-d4deadd73b2f.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-01-01_2021-04-03_179fc16c-0912-417b-9ab8-db55f68195ce.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-01-01_2021-04-03_ecc4044e-2c5e-47fd-8a37-c6ebed724b46.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-04-04_2021-04-04_401fb5f4-5ae6-4e71-bab8-a29f04d5a38d.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-04-05_2021-04-05_2d8dcbf3-3c25-4f8b-94a8-bde73111500f.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-04-05_2021-04-05_e876c5fb-abe2-4187-a18a-515df146a028.pdf
+|       Earnings Events Driven Trading Strategy_IBM_2020-04-07_2021-04-07_34819a2d-2d7f-4561-b2e1-94893641cd68.pdf
+|       ebfb6120-a5d2-4575-97fb-b2b7bca16f11.png
+|       fba8ef8f-0f17-4475-a081-c98bcbe94545.png
+|       Fed Fund Rates Change Event Trading Strategy_AAPL_2019-01-01_2020-12-31_d75a9996-5275-4f98-8ac8-a5a0630eb4cd.pdf
+|       Fed Fund Rates Change Event Trading Strategy_BAC+CIT_2019-01-01_2020-12-31_0313f16d-15ad-4c12-a741-35558b1baad2.pdf
+|       Fed Fund Rates Change Event Trading Strategy_BAC+CIT_2019-01-01_2020-12-31_dd3221ed-a611-4ed4-b235-4df5d0142309.pdf
+|       Fed Fund Rates Change Event Trading Strategy_GOOG_2019-01-01_2020-12-31_543163b1-7162-4eb8-b620-1910a9a71f09.pdf
+|       Fed Fund Rates Change Event Trading Strategy_GOOG_2019-07-01_2021-04-10_0b6f2269-e1e5-4109-b546-c14267815193.pdf
+|       Fed Fund Rates Change Event Trading Strategy_GOOG_2019-07-01_2021-04-10_20bb617d-0723-450f-999b-2b00a58d634f.pdf
+|       Fed Fund Rates Change Event Trading Strategy_IBM_2013-01-01_2020-12-02_af14c82d-7212-4508-926e-e02988dd5ea8.pdf
+|       Fed Fund Rates Change Event Trading Strategy_IBM_2018-01-01_2020-12-02_6c4fdf0c-2534-46f1-be4c-30899296cc6a.pdf
+|       strategy 2_GOOGL_2020-01-01_2021-02-20_e2d4ee45-5141-4d49-8e8c-32a97351a28c.pdf
+|       Technical Indicators Driven Trading Strategy_GOOG+AAPL_2017-01-01_2019-12-31_15258eb3-0942-4449-9471-00b05653e1b9.pdf
+|       Technical Indicators Driven Trading Strategy_GOOG+AAPL_2017-01-01_2019-12-31_88562ddd-25a5-4757-b525-6c9584b0af66.pdf
+|       Technical Indicators Driven Trading Strategy_GOOG_2017-01-01_2019-12-31_0bfed391-72ba-49d6-bef4-07580e3d40fc.pdf
+|       Technical Indicators Driven Trading Strategy_GOOG_2017-01-01_2019-12-31_7513106a-eaa3-425b-85b6-ee60eb497c29.pdf
+|       Technical Indicators Driven Trading Strategy_GOOG_2017-01-01_2019-12-31_ebfb6120-a5d2-4575-97fb-b2b7bca16f11.pdf
+|       test.txt
+|       
++---Scripts
+|   |   008b80a1-2188-403f-ab8e-d4e271c344f7.txt
+|   |   0ad09254-7af1-4ea6-b0f7-8f4800fa93d1.txt
+|   |   1e1ca69f-7d05-46aa-bac0-77a74101f9de.txt
+|   |   215a22ec-eaef-4a8d-8bc3-8327611a4f63.txt
+|   |   244196e4-8a04-4ad7-ac54-9f623ad0b459.txt
+|   |   26e072dd-594c-4a38-b7e9-1e5504bcecab.txt
+|   |   2a2c6bc1-c165-420b-a7b7-a6b566d91db7.txt
+|   |   3768b06d-381f-4870-ba7e-f57eb6a42475.txt
+|   |   3a551815-8aa6-4c3b-baf7-5cb4c55bc6a3.txt
+|   |   3b256257-c1ac-4dfd-8678-0a915c6a40ef.txt
+|   |   3cdbca74-14a7-4905-b9ab-0a26e324e026.txt
+|   |   42ffed16-d42f-43d2-8bbc-10ae89d817aa.txt
+|   |   431d5a23-5030-474e-9c67-94d137d6e9f3.txt
+|   |   4547d845-7262-4328-82ef-4fda1e85b3dc.txt
+|   |   49fb0130-c802-4a7d-83b5-ac5cc368c97f.txt
+|   |   4b949880-714d-4694-94f2-0a7da3b9066f.txt
+|   |   4d5b8e7c-12f0-44a6-8fb0-50b0424530ca.txt
+|   |   54a4e64b-c9dc-4937-b629-7bbb62182430.txt
+|   |   5acfa77e-626b-4f4f-9814-91bb680855a0.txt
+|   |   600cfe3c-2111-4d8a-9246-cc13d7167da9.txt
+|   |   6a286da9-2845-4b05-97d3-c57c9bd6efb1.txt
+|   |   6ed66234-52d0-484e-b05a-5659728ffc0b.txt
+|   |   6f7fbe87-95a5-49be-a1b4-46b5d4f9873c.txt
+|   |   77df0ee4-af37-407d-8f6f-bb584f58e8f3.txt
+|   |   802447f5-c573-48b4-9b81-d47790267d29.txt
+|   |   86c0babc-d2ec-4390-822b-5ed83776253b.txt
+|   |   87bc1d7f-b639-4aff-ad69-1dc20db1c9bb.txt
+|   |   94833a12-b6e7-47fe-8b78-c1dc38228dc0.txt
+|   |   9c7152ea-5592-4517-9df6-4136ff398298.txt
+|   |   a1dfff0f-b20e-4b3b-af64-b2e205633707.txt
+|   |   a4e51dfd-17ee-49ad-a9d2-66f88134bcba.txt
+|   |   a94c76ce-94fc-4818-b836-3c36e3bd850e.txt
+|   |   acaccdd1-af08-4dbe-9388-65515f1c44ae.txt
+|   |   AccountPerformanceScript.ipynb
+|   |   AccountPerformanceScript.py
+|   |   ae876ddc-1641-4b50-8336-777b4547267d.txt
+|   |   af926995-adae-4c7c-a77f-812427f6abf3.txt
+|   |   b1020963-c8be-49ac-93b0-3c9efd8bd179.txt
+|   |   c09bd995-3f66-4234-b392-9ad7a065baeb.txt
+|   |   c15b09c7-7668-4736-8531-4e707204eda3.txt
+|   |   c3795964-5380-42a3-9be2-8144ab1ff57d.txt
+|   |   c9c8dc96-59e1-4a82-8b99-62bd7f9cde13.txt
+|   |   cf870ceb-a4bf-4b1a-b7e4-7733fe02f334.txt
+|   |   d2269f04-d760-411f-90d0-f2c301fb3dc9.txt
+|   |   d2a3464d-c104-4a13-911e-18fde6fe683a.txt
+|   |   d48f430a-444f-49a0-875e-0d153bf1a696.txt
+|   |   d9f19a50-ac8f-49a6-a8d1-3bbad08e959e.txt
+|   |   e0c4b1ed-f783-4fa6-8591-b5f094002a28.txt
+|   |   eaceedd8-4f42-4768-a807-7f4cc95e5f28.txt
+|   |   ef15f811-b602-4ba1-818c-f4953179d50f.txt
+|   |   f0deafa1-7f66-46ec-b536-fdc93a4bff8c.txt
+|   |   f2c730b7-99f5-4b3d-b7ac-e255f510f6e8.txt
+|   |   f45c310f-60c3-4657-8cb7-ccceb52c0dc3.txt
+|   |   f9606f9b-3f09-4e00-b732-de7b5d1c51ef.txt
+|   |   f98ab0d4-f522-4745-9ca7-93dbd5b67533.txt
+|   |   ffdc789e-5e4a-477b-ab08-e4bb22d07a61.txt
+|   |   foo1.png
+|   |   ReportGeneratorScript.py
+|   |   ReportScriptTest.ipynb
+|   |   
+|   \---.ipynb_checkpoints
+|           AccountPerformanceScript-checkpoint.ipynb
+|           ReportScriptTest-checkpoint.ipynb
+|           
++---StrategyBuilder.Api
+|   |   appsettings.Development.json
+|   |   appsettings.json
+|   |   ClassDiagram.cd
+|   |   Program.cs
+|   |   Startup.cs
+|   |   StrategyBuilder.Api.csproj
+|   |   StrategyBuilder.Api.csproj.user
+|   |   WeatherForecast.cs
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---netcoreapp3.1
+|   |           |   appsettings.Development.json
+|   |           |   appsettings.json
+|   |           |   Microsoft.AspNetCore.JsonPatch.dll
+|   |           |   Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+|   |           |   Microsoft.Bcl.AsyncInterfaces.dll
+|   |           |   Microsoft.Bcl.HashCode.dll
+|   |           |   Microsoft.Data.SqlClient.dll
+|   |           |   Microsoft.EntityFrameworkCore.Abstractions.dll
+|   |           |   Microsoft.EntityFrameworkCore.dll
+|   |           |   Microsoft.EntityFrameworkCore.Relational.dll
+|   |           |   Microsoft.EntityFrameworkCore.SqlServer.dll
+|   |           |   Microsoft.Extensions.Caching.Abstractions.dll
+|   |           |   Microsoft.Extensions.Caching.Memory.dll
+|   |           |   Microsoft.Extensions.Configuration.Abstractions.dll
+|   |           |   Microsoft.Extensions.Configuration.Binder.dll
+|   |           |   Microsoft.Extensions.Configuration.dll
+|   |           |   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+|   |           |   Microsoft.Extensions.DependencyInjection.dll
+|   |           |   Microsoft.Extensions.Logging.Abstractions.dll
+|   |           |   Microsoft.Extensions.Logging.dll
+|   |           |   Microsoft.Extensions.Options.dll
+|   |           |   Microsoft.Extensions.Primitives.dll
+|   |           |   Microsoft.Identity.Client.dll
+|   |           |   Microsoft.IdentityModel.JsonWebTokens.dll
+|   |           |   Microsoft.IdentityModel.Logging.dll
+|   |           |   Microsoft.IdentityModel.Protocols.dll
+|   |           |   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+|   |           |   Microsoft.IdentityModel.Tokens.dll
+|   |           |   Microsoft.OpenApi.dll
+|   |           |   MongoDB.Bson.dll
+|   |           |   Newtonsoft.Json.Bson.dll
+|   |           |   Newtonsoft.Json.dll
+|   |           |   StrategyBuilder.Api.deps.json
+|   |           |   StrategyBuilder.Api.dll
+|   |           |   StrategyBuilder.Api.exe
+|   |           |   StrategyBuilder.Api.pdb
+|   |           |   StrategyBuilder.Api.runtimeconfig.dev.json
+|   |           |   StrategyBuilder.Api.runtimeconfig.json
+|   |           |   StrategyBuilder.Model.dll
+|   |           |   StrategyBuilder.Model.pdb
+|   |           |   StrategyBuilder.Repository.dll
+|   |           |   StrategyBuilder.Repository.pdb
+|   |           |   StrategyBuilder.Service.dll
+|   |           |   StrategyBuilder.Service.pdb
+|   |           |   Swashbuckle.AspNetCore.Swagger.dll
+|   |           |   Swashbuckle.AspNetCore.SwaggerGen.dll
+|   |           |   Swashbuckle.AspNetCore.SwaggerUI.dll
+|   |           |   System.Collections.Immutable.dll
+|   |           |   System.Configuration.ConfigurationManager.dll
+|   |           |   System.Diagnostics.DiagnosticSource.dll
+|   |           |   System.IdentityModel.Tokens.Jwt.dll
+|   |           |   System.Runtime.Caching.dll
+|   |           |   System.Security.Cryptography.ProtectedData.dll
+|   |           |   
+|   |           +---Properties
+|   |           |       launchSettings.json
+|   |           |       
+|   |           \---runtimes
+|   |               +---unix
+|   |               |   \---lib
+|   |               |       +---netcoreapp2.0
+|   |               |       |       System.Runtime.Caching.dll
+|   |               |       |       
+|   |               |       \---netcoreapp2.1
+|   |               |               Microsoft.Data.SqlClient.dll
+|   |               |               
+|   |               +---win
+|   |               |   \---lib
+|   |               |       +---netcoreapp2.0
+|   |               |       |       System.Runtime.Caching.dll
+|   |               |       |       
+|   |               |       +---netcoreapp2.1
+|   |               |       |       Microsoft.Data.SqlClient.dll
+|   |               |       |       
+|   |               |       \---netstandard2.0
+|   |               |               System.Security.Cryptography.ProtectedData.dll
+|   |               |               
+|   |               +---win-arm64
+|   |               |   \---native
+|   |               |           sni.dll
+|   |               |           
+|   |               +---win-x64
+|   |               |   \---native
+|   |               |           sni.dll
+|   |               |           
+|   |               \---win-x86
+|   |                   \---native
+|   |                           sni.dll
+|   |                           
+|   +---Controllers
+|   |       BackTestingController.cs
+|   |       EventGroupController.cs
+|   |       IndicatorController.cs
+|   |       StrategyController.cs
+|   |       UserController.cs
+|   |       
+|   +---obj
+|   |   |   project.assets.json
+|   |   |   project.nuget.cache
+|   |   |   StrategyBuilder.Api.csproj.nuget.dgspec.json
+|   |   |   StrategyBuilder.Api.csproj.nuget.g.props
+|   |   |   StrategyBuilder.Api.csproj.nuget.g.targets
+|   |   |   
+|   |   \---Debug
+|   |       \---netcoreapp3.1
+|   |           |   .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+|   |           |   StrategyBuilder.Api.AssemblyInfo.cs
+|   |           |   StrategyBuilder.Api.AssemblyInfoInputs.cache
+|   |           |   StrategyBuilder.Api.assets.cache
+|   |           |   StrategyBuilder.Api.csproj.CopyComplete
+|   |           |   StrategyBuilder.Api.csproj.CoreCompileInputs.cache
+|   |           |   StrategyBuilder.Api.csproj.FileListAbsolute.txt
+|   |           |   StrategyBuilder.Api.csprojAssemblyReference.cache
+|   |           |   StrategyBuilder.Api.dll
+|   |           |   StrategyBuilder.Api.exe
+|   |           |   StrategyBuilder.Api.genruntimeconfig.cache
+|   |           |   StrategyBuilder.Api.MvcApplicationPartsAssemblyInfo.cache
+|   |           |   StrategyBuilder.Api.MvcApplicationPartsAssemblyInfo.cs
+|   |           |   StrategyBuilder.Api.pdb
+|   |           |   StrategyBuilder.Api.RazorTargetAssemblyInfo.cache
+|   |           |   
+|   |           \---staticwebassets
+|   |                   StrategyBuilder.Api.StaticWebAssets.Manifest.cache
+|   |                   StrategyBuilder.Api.StaticWebAssets.xml
+|   |                   
+|   \---Properties
+|           launchSettings.json
+|           
++---StrategyBuilder.Model
+|   |   Account.cs
+|   |   BackTestingRequest.cs
+|   |   ExpressionRequest.cs
+|   |   NegativeIndexArray.cs
+|   |   OrderedDictionary.cs
+|   |   StrategyBuilder.Model.csproj
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---netcoreapp3.1
+|   |               StrategyBuilder.Model.deps.json
+|   |               StrategyBuilder.Model.dll
+|   |               StrategyBuilder.Model.pdb
+|   |               
+|   +---Extensions
+|   |       DateFormatConverter .cs
+|   |       DictionaryExtension.cs
+|   |       
+|   \---obj
+|       |   project.assets.json
+|       |   project.nuget.cache
+|       |   StrategyBuilder.Model.csproj.nuget.dgspec.json
+|       |   StrategyBuilder.Model.csproj.nuget.g.props
+|       |   StrategyBuilder.Model.csproj.nuget.g.targets
+|       |   
+|       \---Debug
+|           \---netcoreapp3.1
+|                   .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+|                   StrategyBuilder.Model.AssemblyInfo.cs
+|                   StrategyBuilder.Model.AssemblyInfoInputs.cache
+|                   StrategyBuilder.Model.assets.cache
+|                   StrategyBuilder.Model.csproj.CoreCompileInputs.cache
+|                   StrategyBuilder.Model.csproj.FileListAbsolute.txt
+|                   StrategyBuilder.Model.csprojAssemblyReference.cache
+|                   StrategyBuilder.Model.dll
+|                   StrategyBuilder.Model.pdb
+|                   
++---StrategyBuilder.Repository
+|   |   StockDataRepo.cs
+|   |   StrategyBuilder.Repository.csproj
+|   |   StrategyBuilderContext.cs
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---netcoreapp3.1
+|   |               StrategyBuilder.Repository.deps.json
+|   |               StrategyBuilder.Repository.dll
+|   |               StrategyBuilder.Repository.pdb
+|   |               StrategyBuilder.Repository.runtimeconfig.dev.json
+|   |               StrategyBuilder.Repository.runtimeconfig.json
+|   |               
+|   +---Entities
+|   |       BackTestingResult.cs
+|   |       Event.cs
+|   |       EventGroup.cs
+|   |       Indicator.cs
+|   |       JoinStrategyEventGroup.cs
+|   |       StockPriceAdjustDaily.cs
+|   |       Strategy.cs
+|   |       User.cs
+|   |       
+|   +---Interfaces
+|   |       IFileRepo.cs
+|   |       IStockDataRepo.cs
+|   |       
+|   +---Migrations
+|   |       20210217062603_InitialCreate.cs
+|   |       20210217062603_InitialCreate.Designer.cs
+|   |       20210222044703_AddActionField.cs
+|   |       20210222044703_AddActionField.Designer.cs
+|   |       20210401052821_AddExpressionToEventGroup.cs
+|   |       20210401052821_AddExpressionToEventGroup.Designer.cs
+|   |       20210402043724_AddIndicatorTable.cs
+|   |       20210402043724_AddIndicatorTable.Designer.cs
+|   |       20210403185114_RemoveExpressionTable.cs
+|   |       20210403185114_RemoveExpressionTable.Designer.cs
+|   |       20210404001518_AddAfterDaysColunm.cs
+|   |       20210404001518_AddAfterDaysColunm.Designer.cs
+|   |       20210404013437_AddPercentage.cs
+|   |       20210404013437_AddPercentage.Designer.cs
+|   |       StrategyBuilderContextModelSnapshot.cs
+|   |       
+|   \---obj
+|       |   project.assets.json
+|       |   project.nuget.cache
+|       |   StrategyBuilder.Repository.csproj.EntityFrameworkCore.targets
+|       |   StrategyBuilder.Repository.csproj.nuget.dgspec.json
+|       |   StrategyBuilder.Repository.csproj.nuget.g.props
+|       |   StrategyBuilder.Repository.csproj.nuget.g.targets
+|       |   
+|       \---Debug
+|           \---netcoreapp3.1
+|                   .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+|                   StrategyBuilder.Repository.AssemblyInfo.cs
+|                   StrategyBuilder.Repository.AssemblyInfoInputs.cache
+|                   StrategyBuilder.Repository.assets.cache
+|                   StrategyBuilder.Repository.csproj.CoreCompileInputs.cache
+|                   StrategyBuilder.Repository.csproj.FileListAbsolute.txt
+|                   StrategyBuilder.Repository.csprojAssemblyReference.cache
+|                   StrategyBuilder.Repository.dll
+|                   StrategyBuilder.Repository.genruntimeconfig.cache
+|                   StrategyBuilder.Repository.pdb
+|                   
++---StrategyBuilder.Service
+|   |   BackTestingEngine.cs
+|   |   BaseService.cs
+|   |   EventService.cs
+|   |   IndicatorService.cs
+|   |   ReportGenerator.cs
+|   |   StrategyBuilder.Service.csproj
+|   |   StrategyService.cs
+|   |   UserService.cs
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---netcoreapp3.1
+|   |               StrategyBuilder.Model.dll
+|   |               StrategyBuilder.Model.pdb
+|   |               StrategyBuilder.Repository.dll
+|   |               StrategyBuilder.Repository.pdb
+|   |               StrategyBuilder.Service.deps.json
+|   |               StrategyBuilder.Service.dll
+|   |               StrategyBuilder.Service.pdb
+|   |               StrategyBuilder.Service.runtimeconfig.dev.json
+|   |               StrategyBuilder.Service.runtimeconfig.json
+|   |               
+|   +---Interfaces
+|   |       IBackTestingEngine.cs
+|   |       IEventService.cs
+|   |       IIndicatorService.cs
+|   |       IReportGenerator.cs
+|   |       IStrategyService.cs
+|   |       IUserService.cs
+|   |       
+|   \---obj
+|       |   project.assets.json
+|       |   project.nuget.cache
+|       |   StrategyBuilder.Service.csproj.nuget.dgspec.json
+|       |   StrategyBuilder.Service.csproj.nuget.g.props
+|       |   StrategyBuilder.Service.csproj.nuget.g.targets
+|       |   
+|       \---Debug
+|           \---netcoreapp3.1
+|                   .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+|                   StrategyBuilder.Service.AssemblyInfo.cs
+|                   StrategyBuilder.Service.AssemblyInfoInputs.cache
+|                   StrategyBuilder.Service.assets.cache
+|                   StrategyBuilder.Service.csproj.CopyComplete
+|                   StrategyBuilder.Service.csproj.CoreCompileInputs.cache
+|                   StrategyBuilder.Service.csproj.FileListAbsolute.txt
+|                   StrategyBuilder.Service.csprojAssemblyReference.cache
+|                   StrategyBuilder.Service.dll
+|                   StrategyBuilder.Service.genruntimeconfig.cache
+|                   StrategyBuilder.Service.pdb
+|                   
+\---UnitTests
+    +---StrategyBuilder.Api.Test
+    |   |   StrategyBuilder.Api.Test.csproj
+    |   |   UnitTest1.cs
+    |   |   
+    |   +---bin
+    |   |   \---Debug
+    |   |       \---netcoreapp3.1
+    |   |           |   Microsoft.DotNet.InternalAbstractions.dll
+    |   |           |   Microsoft.EntityFrameworkCore.Abstractions.dll
+    |   |           |   Microsoft.EntityFrameworkCore.dll
+    |   |           |   Microsoft.EntityFrameworkCore.InMemory.dll
+    |   |           |   Microsoft.Extensions.Caching.Abstractions.dll
+    |   |           |   Microsoft.Extensions.Caching.Memory.dll
+    |   |           |   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+    |   |           |   Microsoft.Extensions.DependencyInjection.dll
+    |   |           |   Microsoft.Extensions.Logging.Abstractions.dll
+    |   |           |   Microsoft.Extensions.Logging.dll
+    |   |           |   Microsoft.Extensions.Options.dll
+    |   |           |   Microsoft.Extensions.Primitives.dll
+    |   |           |   Microsoft.TestPlatform.CommunicationUtilities.dll
+    |   |           |   Microsoft.TestPlatform.CoreUtilities.dll
+    |   |           |   Microsoft.TestPlatform.CrossPlatEngine.dll
+    |   |           |   Microsoft.TestPlatform.PlatformAbstractions.dll
+    |   |           |   Microsoft.TestPlatform.Utilities.dll
+    |   |           |   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+    |   |           |   Microsoft.VisualStudio.TestPlatform.Common.dll
+    |   |           |   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+    |   |           |   Newtonsoft.Json.dll
+    |   |           |   NuGet.Frameworks.dll
+    |   |           |   nunit.engine.api.dll
+    |   |           |   nunit.engine.dll
+    |   |           |   nunit.framework.dll
+    |   |           |   NUnit3.TestAdapter.dll
+    |   |           |   NUnit3.TestAdapter.pdb
+    |   |           |   nunit_random_seed.tmp
+    |   |           |   StrategyBuilder.Api.Test.deps.json
+    |   |           |   StrategyBuilder.Api.Test.dll
+    |   |           |   StrategyBuilder.Api.Test.pdb
+    |   |           |   StrategyBuilder.Api.Test.runtimeconfig.dev.json
+    |   |           |   StrategyBuilder.Api.Test.runtimeconfig.json
+    |   |           |   System.Collections.Immutable.dll
+    |   |           |   System.ComponentModel.Annotations.dll
+    |   |           |   System.Diagnostics.DiagnosticSource.dll
+    |   |           |   System.Xml.XPath.XmlDocument.dll
+    |   |           |   testhost.dll
+    |   |           |   
+    |   |           +---cs
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---de
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---es
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---fr
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---it
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---ja
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---ko
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---pl
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---pt-BR
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---ru
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---tr
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           +---zh-Hans
+    |   |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |           |       
+    |   |           \---zh-Hant
+    |   |                   Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    |   |                   Microsoft.TestPlatform.CoreUtilities.resources.dll
+    |   |                   Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    |   |                   Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    |   |                   Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    |   |                   
+    |   \---obj
+    |       |   project.assets.json
+    |       |   project.nuget.cache
+    |       |   StrategyBuilder.Api.Test.csproj.nuget.dgspec.json
+    |       |   StrategyBuilder.Api.Test.csproj.nuget.g.props
+    |       |   StrategyBuilder.Api.Test.csproj.nuget.g.targets
+    |       |   
+    |       \---Debug
+    |           \---netcoreapp3.1
+    |                   .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+    |                   StrategyBuilder.Api.Test.AssemblyInfo.cs
+    |                   StrategyBuilder.Api.Test.AssemblyInfoInputs.cache
+    |                   StrategyBuilder.Api.Test.assets.cache
+    |                   StrategyBuilder.Api.Test.csproj.CopyComplete
+    |                   StrategyBuilder.Api.Test.csproj.CoreCompileInputs.cache
+    |                   StrategyBuilder.Api.Test.csproj.FileListAbsolute.txt
+    |                   StrategyBuilder.Api.Test.csprojAssemblyReference.cache
+    |                   StrategyBuilder.Api.Test.dll
+    |                   StrategyBuilder.Api.Test.genruntimeconfig.cache
+    |                   StrategyBuilder.Api.Test.pdb
+    |                   
+    \---StrategyBuilder.Service.Test
+        |   BackTestingEngineTests.cs
+        |   DbContextMock.cs
+        |   EventServiceTests.cs
+        |   IndicatorServiceTests.cs
+        |   StrategyBuilder.Service.Test.csproj
+        |   StrategyServiceTests.cs
+        |   
+        +---bin
+        |   \---Debug
+        |       \---netcoreapp3.1
+        |           |   Castle.Core.dll
+        |           |   Microsoft.Data.SqlClient.dll
+        |           |   Microsoft.DotNet.InternalAbstractions.dll
+        |           |   Microsoft.EntityFrameworkCore.Abstractions.dll
+        |           |   Microsoft.EntityFrameworkCore.dll
+        |           |   Microsoft.EntityFrameworkCore.InMemory.dll
+        |           |   Microsoft.EntityFrameworkCore.Relational.dll
+        |           |   Microsoft.EntityFrameworkCore.SqlServer.dll
+        |           |   Microsoft.Extensions.Caching.Abstractions.dll
+        |           |   Microsoft.Extensions.Caching.Memory.dll
+        |           |   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+        |           |   Microsoft.Extensions.DependencyInjection.dll
+        |           |   Microsoft.Extensions.Logging.Abstractions.dll
+        |           |   Microsoft.Extensions.Logging.dll
+        |           |   Microsoft.Extensions.Options.dll
+        |           |   Microsoft.Extensions.Primitives.dll
+        |           |   Microsoft.Identity.Client.dll
+        |           |   Microsoft.IdentityModel.JsonWebTokens.dll
+        |           |   Microsoft.IdentityModel.Logging.dll
+        |           |   Microsoft.IdentityModel.Protocols.dll
+        |           |   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+        |           |   Microsoft.IdentityModel.Tokens.dll
+        |           |   Microsoft.TestPlatform.CommunicationUtilities.dll
+        |           |   Microsoft.TestPlatform.CoreUtilities.dll
+        |           |   Microsoft.TestPlatform.CrossPlatEngine.dll
+        |           |   Microsoft.TestPlatform.PlatformAbstractions.dll
+        |           |   Microsoft.TestPlatform.Utilities.dll
+        |           |   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+        |           |   Microsoft.VisualStudio.TestPlatform.Common.dll
+        |           |   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+        |           |   MongoDB.Bson.dll
+        |           |   Moq.dll
+        |           |   Newtonsoft.Json.dll
+        |           |   NuGet.Frameworks.dll
+        |           |   nunit.engine.api.dll
+        |           |   nunit.engine.dll
+        |           |   nunit.framework.dll
+        |           |   NUnit3.TestAdapter.dll
+        |           |   NUnit3.TestAdapter.pdb
+        |           |   nunit_random_seed.tmp
+        |           |   StrategyBuilder.Model.dll
+        |           |   StrategyBuilder.Model.pdb
+        |           |   StrategyBuilder.Repository.dll
+        |           |   StrategyBuilder.Repository.pdb
+        |           |   StrategyBuilder.Service.dll
+        |           |   StrategyBuilder.Service.pdb
+        |           |   StrategyBuilder.Service.Test.deps.json
+        |           |   StrategyBuilder.Service.Test.dll
+        |           |   StrategyBuilder.Service.Test.pdb
+        |           |   StrategyBuilder.Service.Test.runtimeconfig.dev.json
+        |           |   StrategyBuilder.Service.Test.runtimeconfig.json
+        |           |   System.Collections.Immutable.dll
+        |           |   System.ComponentModel.Annotations.dll
+        |           |   System.Configuration.ConfigurationManager.dll
+        |           |   System.Diagnostics.DiagnosticSource.dll
+        |           |   System.IdentityModel.Tokens.Jwt.dll
+        |           |   System.Runtime.Caching.dll
+        |           |   System.Security.Cryptography.ProtectedData.dll
+        |           |   System.Security.Permissions.dll
+        |           |   System.Xml.XPath.XmlDocument.dll
+        |           |   testhost.dll
+        |           |   
+        |           +---cs
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---de
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---es
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---fr
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---it
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---ja
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---ko
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---pl
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---pt-BR
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---ru
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---runtimes
+        |           |   +---unix
+        |           |   |   \---lib
+        |           |   |       +---netcoreapp2.0
+        |           |   |       |       System.Runtime.Caching.dll
+        |           |   |       |       
+        |           |   |       \---netcoreapp2.1
+        |           |   |               Microsoft.Data.SqlClient.dll
+        |           |   |               
+        |           |   +---win
+        |           |   |   \---lib
+        |           |   |       +---netcoreapp2.0
+        |           |   |       |       System.Runtime.Caching.dll
+        |           |   |       |       
+        |           |   |       +---netcoreapp2.1
+        |           |   |       |       Microsoft.Data.SqlClient.dll
+        |           |   |       |       
+        |           |   |       \---netstandard2.0
+        |           |   |               System.Security.Cryptography.ProtectedData.dll
+        |           |   |               
+        |           |   +---win-arm64
+        |           |   |   \---native
+        |           |   |           sni.dll
+        |           |   |           
+        |           |   +---win-x64
+        |           |   |   \---native
+        |           |   |           sni.dll
+        |           |   |           
+        |           |   \---win-x86
+        |           |       \---native
+        |           |               sni.dll
+        |           |               
+        |           +---tr
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           +---zh-Hans
+        |           |       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |           |       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |           |       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |           |       
+        |           \---zh-Hant
+        |                   Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+        |                   Microsoft.TestPlatform.CoreUtilities.resources.dll
+        |                   Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+        |                   Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+        |                   Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+        |                   
+        \---obj
+            |   project.assets.json
+            |   project.nuget.cache
+            |   StrategyBuilder.Service.Test.csproj.nuget.dgspec.json
+            |   StrategyBuilder.Service.Test.csproj.nuget.g.props
+            |   StrategyBuilder.Service.Test.csproj.nuget.g.targets
+            |   
+            \---Debug
+                \---netcoreapp3.1
+                        .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+                        StrategyBuilder.Service.Test.AssemblyInfo.cs
+                        StrategyBuilder.Service.Test.AssemblyInfoInputs.cache
+                        StrategyBuilder.Service.Test.assets.cache
+                        StrategyBuilder.Service.Test.csproj.CopyComplete
+                        StrategyBuilder.Service.Test.csproj.CoreCompileInputs.cache
+                        StrategyBuilder.Service.Test.csproj.FileListAbsolute.txt
+                        StrategyBuilder.Service.Test.csprojAssemblyReference.cache
+                        StrategyBuilder.Service.Test.dll
+                        StrategyBuilder.Service.Test.genruntimeconfig.cache
+                        StrategyBuilder.Service.Test.pdb
+                        
